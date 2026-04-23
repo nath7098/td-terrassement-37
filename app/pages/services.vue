@@ -165,25 +165,34 @@ const services = [
 
     <section class="py-16 bg-white">
       <div class="max-w-6xl mx-auto px-4 space-y-12">
-        <div v-for="s in services" :key="s.slug" :id="s.slug" class="grid md:grid-cols-2 gap-8 items-start scroll-mt-20">
-          <div>
-            <div class="flex items-center gap-3 mb-4">
-              <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl text-white" :style="{ backgroundColor: s.color }">
-                <UIcon :name="s.icon" />
+        <div v-for="s in services" :key="s.slug" :id="s.slug" class="scroll-mt-20">
+          <div class="grid md:grid-cols-2 gap-8 items-start">
+            <div>
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl text-white" :style="{ backgroundColor: s.color }">
+                  <UIcon :name="s.icon" />
+                </div>
+                <h2 class="text-2xl font-bold text-stone-900">{{ s.title }}</h2>
               </div>
-              <h2 class="text-2xl font-bold text-stone-900">{{ s.title }}</h2>
+              <p class="text-stone-600 leading-relaxed mb-4">{{ s.intro }}</p>
+              <!-- Photo de la prestation — remplacer src avec l'image fournie par Nathan -->
+              <AppImage
+                :alt="`${s.title} par TD Terrassement 37 en Indre-et-Loire`"
+                aspect-ratio="16/9"
+                :rounded="true"
+                class="mb-6"
+              />
+              <UButton to="/contact" label="Demander un devis" icon="i-lucide-arrow-right" :style="{ backgroundColor: s.color, color: 'white' }" />
             </div>
-            <p class="text-stone-600 leading-relaxed mb-6">{{ s.intro }}</p>
-            <UButton to="/contact" label="Demander un devis" icon="i-lucide-arrow-right" :style="{ backgroundColor: s.color, color: 'white' }" />
-          </div>
-          <div class="bg-stone-50 rounded-2xl p-6">
-            <h3 class="font-semibold text-stone-800 mb-4">Ce que nous réalisons :</h3>
-            <ul class="space-y-2">
-              <li v-for="d in s.details" :key="d" class="flex items-start gap-2 text-sm text-stone-700">
-                <UIcon name="i-lucide-check-circle" class="text-green-600 mt-0.5 flex-shrink-0" />
-                {{ d }}
-              </li>
-            </ul>
+            <div class="bg-stone-50 rounded-2xl p-6">
+              <h3 class="font-semibold text-stone-800 mb-4">Ce que nous réalisons :</h3>
+              <ul class="space-y-2">
+                <li v-for="d in s.details" :key="d" class="flex items-start gap-2 text-sm text-stone-700">
+                  <UIcon name="i-lucide-check-circle" class="text-green-600 mt-0.5 flex-shrink-0" />
+                  {{ d }}
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
