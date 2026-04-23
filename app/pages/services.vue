@@ -72,47 +72,6 @@ useHead({
         ]
       })
     },
-    {
-      type: 'application/ld+json',
-      innerHTML: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'Quelle est la différence entre terrassement général et excavation ?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Le terrassement général désigne l\'ensemble des travaux de préparation de terrain (déblai, remblai, compactage). L\'excavation est un creusement précis et localisé pour créer fondations, tranchées ou sous-sols.'
-            }
-          },
-          {
-            '@type': 'Question',
-            name: 'Pour quels projets réalisez-vous du terrassement ?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'TD Terrassement 37 intervient pour tous les projets : construction de maison individuelle, piscine, garage enterré, voirie privée, aménagement paysager, travaux agricoles, chantiers BTP professionnels.'
-            }
-          },
-          {
-            '@type': 'Question',
-            name: 'Quel est le délai pour démarrer un chantier de terrassement ?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Le devis est gratuit et fourni sous 24 h. Le délai de démarrage dépend de la disponibilité des équipes et de la taille du chantier. Pour les urgences, nous faisons le maximum pour intervenir rapidement en Indre-et-Loire.'
-            }
-          },
-          {
-            '@type': 'Question',
-            name: 'Intervenez-vous hors d\'Indre-et-Loire ?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Oui, nous intervenons également dans les départements limitrophes : Maine-et-Loire (49), Loir-et-Cher (41) et Vienne (86) pour les chantiers proches de la frontière. Consultez notre page Zones pour la liste complète des communes desservies.'
-            }
-          }
-        ]
-      })
-    }
   ]
 })
 
@@ -182,6 +141,23 @@ const faqs = [
     answer: 'Oui, nous intervenons également dans les départements limitrophes : Maine-et-Loire (49), Loir-et-Cher (41) et Vienne (86) pour les chantiers proches de la frontière. Consultez notre page Zones pour la liste complète des communes desservies.'
   }
 ]
+
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map(f => ({
+          '@type': 'Question',
+          name: f.question,
+          acceptedAnswer: { '@type': 'Answer', text: f.answer }
+        }))
+      })
+    }
+  ]
+})
 </script>
 
 <template>
