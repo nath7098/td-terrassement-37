@@ -5,5 +5,6 @@
       <slot />
     </main>
     <AppFooter />
+    <AppPhoneButton />
   </div>
 </template>

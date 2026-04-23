@@ -137,7 +137,14 @@ useHead({
               </div>
             </div>
 
-            <div class="mt-8 p-6 rounded-xl text-white" style="background-color: #2D5016">
+            <AppImage
+              :alt="`Terrassement et excavation à ${ville.nom} par TD Terrassement 37`"
+              aspect-ratio="16/9"
+              :rounded="true"
+              class="mt-8 mb-2"
+            />
+
+            <div class="mt-6 p-6 rounded-xl text-white" style="background-color: #2D5016">
               <h3 class="font-semibold mb-2">Intervention à {{ ville.nom }} — Devis gratuit</h3>
               <p class="text-green-100 text-sm mb-4">Vous avez un projet de terrassement {{ ville.displayName }} ? Contactez-nous pour un devis gratuit et personnalisé.</p>
               <div class="flex flex-wrap gap-3">

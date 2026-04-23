@@ -11,6 +11,7 @@ const staticRoutes = [
   '/zones',
   '/contact',
   '/mentions-legales',
+  '/404',
   ...villeSlugs.map(s => `/zones/${s}`)
 ]
 
@@ -87,7 +88,8 @@ export default defineNuxtConfig({
     '/zones': { prerender: true },
     '/zones/**': { prerender: true },
     '/contact': { prerender: true },
-    '/mentions-legales': { prerender: true }
+    '/mentions-legales': { prerender: true },
+    '/404': { prerender: true }
   },
 
   compatibilityDate: '2025-01-15',
