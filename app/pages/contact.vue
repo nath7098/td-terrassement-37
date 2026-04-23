@@ -100,6 +100,7 @@ function validateForm() {
 }
 
 async function handleSubmit() {
+  if (loading.value) return
   if (!validateForm()) return
   loading.value = true
   sendError.value = ''
