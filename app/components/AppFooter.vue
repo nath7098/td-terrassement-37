@@ -16,18 +16,26 @@ const year = new Date().getFullYear()
           <p class="text-green-100 text-sm leading-relaxed mb-4">
             Entreprise de terrassement professionnelle en Indre-et-Loire. Excavation, nivellement, remblaiement dans tout le département 37.
           </p>
-          <div class="flex gap-2">
-            <UButton
-              to="https://share.google/QKpfCyuEupbTsyRvt"
-              target="_blank"
-              rel="noopener"
-              size="xs"
-              label="Nos avis Google"
-              icon="i-simple-icons-google"
-              variant="outline"
-              class="border-white/30 text-white hover:bg-white/10"
-            />
-          </div>
+          <ul class="space-y-2 text-sm text-green-100 mb-4">
+            <li class="flex items-start gap-2">
+              <UIcon name="i-lucide-phone" class="flex-shrink-0 mt-0.5" />
+              <a href="tel:+33601370443" class="hover:text-white transition-colors font-semibold">06 01 37 04 43</a>
+            </li>
+            <li class="flex items-start gap-2">
+              <UIcon name="i-lucide-map-pin" class="flex-shrink-0 mt-0.5" />
+              <span>15 Rue des Rabatteries<br>37230 Fondettes</span>
+            </li>
+          </ul>
+          <UButton
+            to="https://share.google/QKpfCyuEupbTsyRvt"
+            target="_blank"
+            rel="noopener"
+            size="xs"
+            label="Nos avis Google"
+            icon="i-simple-icons-google"
+            variant="outline"
+            class="border-white/30 text-white hover:bg-white/10"
+          />
         </div>
 
         <div>
@@ -52,16 +60,17 @@ const year = new Date().getFullYear()
             icon="i-lucide-external-link"
             size="sm"
             variant="outline"
-            class="border-white/30 text-white hover:bg-white/10"
+            class="border-white/30 text-white hover:bg-white/10 mb-4"
           />
           <div class="mt-4 text-sm text-green-100">
-            <p class="flex items-center gap-1"><UIcon name="i-lucide-map-pin" class="flex-shrink-0" /> Indre-et-Loire (37)</p>
+            <p class="flex items-center gap-1.5 mb-1"><UIcon name="i-lucide-map-pin" class="flex-shrink-0" /> Indre-et-Loire (37)</p>
+            <p class="flex items-center gap-1.5"><UIcon name="i-lucide-phone" class="flex-shrink-0" /> <a href="tel:+33601370443" class="hover:text-white transition-colors">06 01 37 04 43</a></p>
           </div>
         </div>
       </div>
 
       <div class="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-green-200">
-        <p>© {{ year }} TD Terrassement 37 — Tous droits réservés</p>
+        <p>© {{ year }} TD Terrassement 37 — 15 Rue des Rabatteries, 37230 Fondettes</p>
         <NuxtLink to="/mentions-legales" class="hover:text-white transition-colors">Mentions légales</NuxtLink>
       </div>
     </div>

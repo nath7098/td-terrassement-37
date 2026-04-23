@@ -1,3 +1,10 @@
+const villeSlugs = [
+  'azay-le-rideau','blois','bourgueil','chateau-la-valliere','chateaurenault',
+  'chatellerault','chinon','descartes','fondettes','joue-les-tours',
+  'la-ville-aux-dames','langeais','loches','loudun','montlouis-sur-loire',
+  'notre-dame-doe','saumur','savonnieres','tours','vendome'
+]
+
 export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
@@ -18,7 +25,19 @@ export default defineNuxtConfig({
   },
 
   sitemap: {
-    strictNuxtContentPaths: false
+    strictNuxtContentPaths: false,
+    urls: [
+      { loc: '/', priority: 1.0, changefreq: 'weekly' },
+      { loc: '/services', priority: 0.9, changefreq: 'monthly' },
+      { loc: '/zones', priority: 0.9, changefreq: 'monthly' },
+      { loc: '/contact', priority: 0.8, changefreq: 'monthly' },
+      ...villeSlugs.map(slug => ({
+        loc: `/zones/${slug}`,
+        priority: 0.8,
+        changefreq: 'monthly' as const,
+        lastmod: new Date().toISOString().split('T')[0]
+      }))
+    ]
   },
 
   robots: {
@@ -30,10 +49,11 @@ export default defineNuxtConfig({
       htmlAttrs: { lang: 'fr' },
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
-      link: [
-        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
-        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Crimson+Pro:wght@400;600;700&display=swap' }
+      meta: [
+        { name: 'geo.region', content: 'FR-37' },
+        { name: 'geo.placename', content: 'Fondettes, Indre-et-Loire' },
+        { name: 'geo.position', content: '47.4019;0.6031' },
+        { name: 'ICBM', content: '47.4019, 0.6031' }
       ]
     }
   },

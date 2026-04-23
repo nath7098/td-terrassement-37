@@ -36,6 +36,13 @@ const nav = [
       </nav>
 
       <div class="hidden md:flex items-center gap-2">
+        <a
+          href="tel:+33601370443"
+          class="flex items-center gap-1.5 text-sm font-semibold px-3 py-2 rounded-lg border border-stone-200 text-stone-700 hover:bg-stone-50 transition-colors"
+        >
+          <UIcon name="i-lucide-phone" class="text-green-700" />
+          06 01 37 04 43
+        </a>
         <UButton
           to="/contact"
           size="sm"
@@ -63,7 +70,14 @@ const nav = [
       >
         {{ item.label }}
       </NuxtLink>
-      <div class="pt-2">
+      <div class="pt-2 flex flex-col gap-2">
+        <a
+          href="tel:+33601370443"
+          class="flex items-center justify-center gap-2 py-2.5 rounded-lg border border-stone-200 text-stone-700 font-semibold text-sm"
+        >
+          <UIcon name="i-lucide-phone" style="color: #2D5016" />
+          06 01 37 04 43
+        </a>
         <UButton to="/contact" block label="Devis gratuit" :style="{ backgroundColor: '#2D5016', color: 'white' }" />
       </div>
     </div>

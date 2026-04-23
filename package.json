@@ -11,6 +11,8 @@
     "typecheck": "nuxt typecheck"
   },
   "dependencies": {
+    "@fontsource-variable/inter": "^5.0.0",
+    "@fontsource/crimson-pro": "^5.0.0",
     "@iconify-json/lucide": "^1.2.102",
     "@iconify-json/simple-icons": "^1.2.78",
     "@nuxt/ui": "^4.6.1",

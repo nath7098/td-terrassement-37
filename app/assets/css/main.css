@@ -1,3 +1,8 @@
+@import '@fontsource-variable/inter';
+@import '@fontsource/crimson-pro/400.css';
+@import '@fontsource/crimson-pro/600.css';
+@import '@fontsource/crimson-pro/700.css';
+
 @import "tailwindcss";
 @import "@nuxt/ui";
 
@@ -11,7 +16,7 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter Variable', 'Inter', sans-serif;
   background-color: #FAFAF8;
   color: #1a1a1a;
 }
