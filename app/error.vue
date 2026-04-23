@@ -52,9 +52,9 @@ const handleGoHome = () => clearError({ redirect: '/' })
         <div class="max-w-4xl mx-auto px-4 text-center">
           <h2 class="text-xl font-bold text-stone-900 mb-6">Retrouvez votre chemin</h2>
           <div class="flex flex-wrap justify-center gap-3">
-            <UButton to="/services" label="Nos services" icon="i-lucide-mountain-snow" variant="outline" :style="{ borderColor: '#2D5016', color: '#2D5016' }" @click="() => clearError()" />
-            <UButton to="/zones" label="Zones d'intervention" icon="i-lucide-map-pin" variant="outline" :style="{ borderColor: '#2D5016', color: '#2D5016' }" @click="() => clearError()" />
-            <UButton to="/contact" label="Nous contacter" icon="i-lucide-send" variant="outline" :style="{ borderColor: '#2D5016', color: '#2D5016' }" @click="() => clearError()" />
+            <UButton label="Nos services" icon="i-lucide-mountain-snow" variant="outline" :style="{ borderColor: '#2D5016', color: '#2D5016' }" @click="clearError({ redirect: '/services' })" />
+            <UButton label="Zones d'intervention" icon="i-lucide-map-pin" variant="outline" :style="{ borderColor: '#2D5016', color: '#2D5016' }" @click="clearError({ redirect: '/zones' })" />
+            <UButton label="Nous contacter" icon="i-lucide-send" variant="outline" :style="{ borderColor: '#2D5016', color: '#2D5016' }" @click="clearError({ redirect: '/contact' })" />
           </div>
         </div>
       </section>
