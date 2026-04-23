@@ -1,24 +1,59 @@
 <script setup lang="ts">
+const SITE_URL = 'https://terrassement.td-locationbenne37.fr'
+
 useSeoMeta({
   title: 'Contact & Devis gratuit — TD Terrassement 37 | Indre-et-Loire',
-  description: 'Contactez TD Terrassement 37 pour un devis gratuit. Terrassement, excavation, nivellement en Indre-et-Loire. Formulaire de contact ou Google Business.',
+  description: 'Contactez TD Terrassement 37 pour un devis gratuit. Terrassement, excavation, nivellement en Indre-et-Loire. Appelez le 06 01 37 04 43 ou utilisez notre formulaire.',
   ogTitle: 'Contact — TD Terrassement 37',
-  ogDescription: 'Demandez un devis gratuit pour vos travaux de terrassement en Indre-et-Loire.',
-  ogType: 'website'
+  ogDescription: 'Devis gratuit pour vos travaux de terrassement en Indre-et-Loire. 06 01 37 04 43.',
+  ogType: 'website',
+  ogUrl: `${SITE_URL}/contact`,
+  ogImage: `${SITE_URL}/og-default.jpg`,
+  twitterCard: 'summary_large_image',
+  twitterTitle: 'Contact — TD Terrassement 37',
+  twitterDescription: 'Devis gratuit pour vos travaux de terrassement en Indre-et-Loire. 06 01 37 04 43.',
+  twitterImage: `${SITE_URL}/og-default.jpg`
 })
 useHead({
-  link: [{ rel: 'canonical', href: 'https://terrassement.td-locationbenne37.fr/contact' }],
-  script: [{
-    type: 'application/ld+json',
-    innerHTML: JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'LocalBusiness',
-      name: 'TD Terrassement 37',
-      url: 'https://terrassement.td-locationbenne37.fr',
-      sameAs: ['https://share.google/QKpfCyuEupbTsyRvt', 'https://td-locationbenne37.fr'],
-      areaServed: 'Indre-et-Loire'
-    })
-  }]
+  link: [{ rel: 'canonical', href: `${SITE_URL}/contact` }],
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'LocalBusiness',
+        name: 'TD Terrassement 37',
+        telephone: '+33601370443',
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: '15 Rue des Rabatteries',
+          addressLocality: 'Fondettes',
+          postalCode: '37230',
+          addressCountry: 'FR'
+        },
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: 47.4019,
+          longitude: 0.6031
+        },
+        url: SITE_URL,
+        sameAs: ['https://share.google/QKpfCyuEupbTsyRvt', 'https://td-locationbenne37.fr'],
+        areaServed: 'Indre-et-Loire',
+        priceRange: '€€'
+      })
+    },
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Accueil', item: SITE_URL },
+          { '@type': 'ListItem', position: 2, name: 'Contact', item: `${SITE_URL}/contact` }
+        ]
+      })
+    }
+  ]
 })
 
 const form = reactive({
@@ -26,6 +61,7 @@ const form = reactive({
   prenom: '',
   telephone: '',
   email: '',
+  commune: '',
   prestation: '',
   message: ''
 })
@@ -72,11 +108,11 @@ async function handleSubmit() {
   <div>
     <section class="hero-gradient text-white py-16">
       <div class="max-w-6xl mx-auto px-4">
-        <div class="flex items-center gap-2 text-green-200 text-sm mb-4">
+        <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-green-200 text-sm mb-4">
           <NuxtLink to="/" class="hover:text-white">Accueil</NuxtLink>
           <UIcon name="i-lucide-chevron-right" class="text-xs" />
           <span>Contact</span>
-        </div>
+        </nav>
         <h1 class="text-4xl md:text-5xl font-bold mb-4">Contact &<br><span style="color: #C4A35A">Devis gratuit</span></h1>
         <p class="text-green-100 text-lg max-w-xl">Décrivez votre projet et nous vous répondrons rapidement. Intervention en Indre-et-Loire et environs.</p>
       </div>
@@ -97,36 +133,41 @@ async function handleSubmit() {
 
               <div class="grid grid-cols-2 gap-4">
                 <div>
-                  <label class="block text-sm font-medium text-stone-700 mb-1">Nom *</label>
-                  <UInput v-model="form.nom" placeholder="Dupont" size="lg" :ui="{ base: errors.nom ? 'ring-red-500' : '' }" />
+                  <label class="block text-sm font-medium text-stone-700 mb-1" for="nom">Nom *</label>
+                  <UInput id="nom" v-model="form.nom" placeholder="Dupont" size="lg" :ui="{ base: errors.nom ? 'ring-red-500' : '' }" />
                   <p v-if="errors.nom" class="text-red-500 text-xs mt-1">{{ errors.nom }}</p>
                 </div>
                 <div>
-                  <label class="block text-sm font-medium text-stone-700 mb-1">Prénom</label>
-                  <UInput v-model="form.prenom" placeholder="Jean" size="lg" />
+                  <label class="block text-sm font-medium text-stone-700 mb-1" for="prenom">Prénom</label>
+                  <UInput id="prenom" v-model="form.prenom" placeholder="Jean" size="lg" />
                 </div>
               </div>
 
               <div>
-                <label class="block text-sm font-medium text-stone-700 mb-1">Téléphone *</label>
-                <UInput v-model="form.telephone" placeholder="06 01 23 45 67" size="lg" type="tel" :ui="{ base: errors.telephone ? 'ring-red-500' : '' }" />
+                <label class="block text-sm font-medium text-stone-700 mb-1" for="telephone">Téléphone *</label>
+                <UInput id="telephone" v-model="form.telephone" placeholder="06 01 23 45 67" size="lg" type="tel" :ui="{ base: errors.telephone ? 'ring-red-500' : '' }" />
                 <p v-if="errors.telephone" class="text-red-500 text-xs mt-1">{{ errors.telephone }}</p>
               </div>
 
               <div>
-                <label class="block text-sm font-medium text-stone-700 mb-1">Email</label>
-                <UInput v-model="form.email" placeholder="jean.dupont@email.fr" size="lg" type="email" :ui="{ base: errors.email ? 'ring-red-500' : '' }" />
+                <label class="block text-sm font-medium text-stone-700 mb-1" for="email">Email</label>
+                <UInput id="email" v-model="form.email" placeholder="jean.dupont@email.fr" size="lg" type="email" :ui="{ base: errors.email ? 'ring-red-500' : '' }" />
                 <p v-if="errors.email" class="text-red-500 text-xs mt-1">{{ errors.email }}</p>
               </div>
 
               <div>
-                <label class="block text-sm font-medium text-stone-700 mb-1">Type de prestation</label>
-                <USelect v-model="form.prestation" :options="prestations" placeholder="Choisir une prestation" size="lg" />
+                <label class="block text-sm font-medium text-stone-700 mb-1" for="commune">Commune du chantier</label>
+                <UInput id="commune" v-model="form.commune" placeholder="Tours, Fondettes, Chinon…" size="lg" />
               </div>
 
               <div>
-                <label class="block text-sm font-medium text-stone-700 mb-1">Message / description du projet *</label>
-                <UTextarea v-model="form.message" placeholder="Décrivez votre projet : type de travaux, superficie, localisation, contraintes particulières..." :rows="5" size="lg" :ui="{ base: errors.message ? 'ring-red-500' : '' }" />
+                <label class="block text-sm font-medium text-stone-700 mb-1" for="prestation">Type de prestation</label>
+                <USelect id="prestation" v-model="form.prestation" :options="prestations" placeholder="Choisir une prestation" size="lg" />
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-stone-700 mb-1" for="message">Message / description du projet *</label>
+                <UTextarea id="message" v-model="form.message" placeholder="Décrivez votre projet : type de travaux, superficie, localisation, contraintes particulières..." :rows="5" size="lg" :ui="{ base: errors.message ? 'ring-red-500' : '' }" />
                 <p v-if="errors.message" class="text-red-500 text-xs mt-1">{{ errors.message }}</p>
               </div>
 
@@ -144,12 +185,18 @@ async function handleSubmit() {
           </div>
 
           <div class="space-y-4">
+            <div class="rounded-xl p-5 text-white" style="background-color: #2D5016">
+              <h3 class="font-semibold mb-3">Nous appeler directement</h3>
+              <a href="tel:+33601370443" class="text-2xl font-bold hover:underline block mb-1">06 01 37 04 43</a>
+              <p class="text-green-200 text-xs">Lundi – Vendredi, réponse rapide</p>
+            </div>
+
             <div class="bg-stone-50 rounded-xl p-5">
               <h3 class="font-semibold text-stone-800 mb-4">Informations</h3>
               <ul class="space-y-3 text-sm text-stone-700">
                 <li class="flex items-start gap-2">
                   <UIcon name="i-lucide-map-pin" class="mt-0.5 flex-shrink-0" style="color: #2D5016" />
-                  Indre-et-Loire (37) et environs
+                  <span>15 Rue des Rabatteries<br>37230 Fondettes</span>
                 </li>
                 <li class="flex items-start gap-2">
                   <UIcon name="i-lucide-clock" class="mt-0.5 flex-shrink-0" style="color: #2D5016" />
@@ -158,6 +205,10 @@ async function handleSubmit() {
                 <li class="flex items-start gap-2">
                   <UIcon name="i-lucide-badge-check" class="mt-0.5 flex-shrink-0" style="color: #2D5016" />
                   Devis gratuit sans engagement
+                </li>
+                <li class="flex items-start gap-2">
+                  <UIcon name="i-lucide-map" class="mt-0.5 flex-shrink-0" style="color: #2D5016" />
+                  Indre-et-Loire (37) et environs
                 </li>
               </ul>
             </div>

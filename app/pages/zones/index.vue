@@ -1,25 +1,47 @@
 <script setup lang="ts">
 import { villeList } from '~/data/villes'
 
+const SITE_URL = 'https://terrassement.td-locationbenne37.fr'
+
 useSeoMeta({
   title: 'Zones d\'intervention — Terrassement en Indre-et-Loire | TD Terrassement 37',
   description: 'TD Terrassement 37 intervient à Tours, Joué-lès-Tours, Chinon, Loches et dans toutes les communes d\'Indre-et-Loire. Consultez notre zone de couverture complète.',
   ogTitle: 'Zones d\'intervention — TD Terrassement 37',
   ogDescription: 'Terrassement, excavation et nivellement dans tout l\'Indre-et-Loire et les départements limitrophes.',
-  ogType: 'website'
+  ogType: 'website',
+  ogUrl: `${SITE_URL}/zones`,
+  ogImage: `${SITE_URL}/og-default.jpg`,
+  twitterCard: 'summary_large_image',
+  twitterTitle: 'Zones d\'intervention — TD Terrassement 37',
+  twitterDescription: 'Terrassement dans tout l\'Indre-et-Loire et environs. 20 communes desservies.',
+  twitterImage: `${SITE_URL}/og-default.jpg`
 })
-useHead({ link: [{ rel: 'canonical', href: 'https://terrassement.td-locationbenne37.fr/zones' }] })
+
+useHead({
+  link: [{ rel: 'canonical', href: `${SITE_URL}/zones` }],
+  script: [{
+    type: 'application/ld+json',
+    innerHTML: JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'Zones d\'intervention', item: `${SITE_URL}/zones` }
+      ]
+    })
+  }]
+})
 </script>
 
 <template>
   <div>
     <section class="hero-gradient text-white py-16">
       <div class="max-w-6xl mx-auto px-4">
-        <div class="flex items-center gap-2 text-green-200 text-sm mb-4">
+        <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-green-200 text-sm mb-4">
           <NuxtLink to="/" class="hover:text-white">Accueil</NuxtLink>
           <UIcon name="i-lucide-chevron-right" class="text-xs" />
           <span>Zones d'intervention</span>
-        </div>
+        </nav>
         <h1 class="text-4xl md:text-5xl font-bold mb-4">Zones<br><span style="color: #C4A35A">d'intervention</span></h1>
         <p class="text-green-100 text-lg max-w-2xl">Nous intervenons dans {{ villeList.length }} communes en Indre-et-Loire et dans les départements limitrophes.</p>
       </div>
@@ -51,7 +73,13 @@ useHead({ link: [{ rel: 'canonical', href: 'https://terrassement.td-locationbenn
       <div class="max-w-4xl mx-auto px-4 text-center">
         <h2 class="text-2xl font-bold text-stone-900 mb-4">Votre commune n'est pas listée ?</h2>
         <p class="text-stone-600 mb-6">Contactez-nous, nous intervenons également dans de nombreuses autres communes d'Indre-et-Loire et alentours.</p>
-        <UButton to="/contact" label="Nous contacter" icon="i-lucide-phone" :style="{ backgroundColor: '#2D5016', color: 'white' }" />
+        <div class="flex flex-wrap justify-center gap-3">
+          <a href="tel:+33601370443" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white" style="background-color: #2D5016">
+            <UIcon name="i-lucide-phone" />
+            06 01 37 04 43
+          </a>
+          <UButton to="/contact" label="Formulaire de contact" icon="i-lucide-send" variant="outline" :style="{ borderColor: '#2D5016', color: '#2D5016' }" />
+        </div>
       </div>
     </section>
   </div>

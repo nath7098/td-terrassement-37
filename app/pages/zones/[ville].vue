@@ -11,7 +11,8 @@ if (!ville) {
 
 const nearbyVilles = villeList.filter(v => ville.villesProches.includes(v.slug))
 
-const canonicalUrl = `https://terrassement.td-locationbenne37.fr/zones/${slug}`
+const SITE_URL = 'https://terrassement.td-locationbenne37.fr'
+const canonicalUrl = `${SITE_URL}/zones/${slug}`
 const title = `Terrassement ${ville.nom} (${ville.codePostal}) — TD Terrassement 37 | Excavation & Nivellement`
 const description = ville.metaDescription
 
@@ -21,7 +22,12 @@ useSeoMeta({
   ogTitle: title,
   ogDescription: description,
   ogType: 'website',
-  ogUrl: canonicalUrl
+  ogUrl: canonicalUrl,
+  ogImage: `${SITE_URL}/og-default.jpg`,
+  twitterCard: 'summary_large_image',
+  twitterTitle: title,
+  twitterDescription: description,
+  twitterImage: `${SITE_URL}/og-default.jpg`
 })
 
 useHead({
@@ -33,11 +39,19 @@ useHead({
         '@context': 'https://schema.org',
         '@type': 'Service',
         name: `Terrassement ${ville.nom}`,
-        description: `Services de terrassement, excavation et nivellement à ${ville.nom}`,
+        description: `Services de terrassement, excavation et nivellement à ${ville.nom} (${ville.codePostal})`,
         provider: {
           '@type': 'LocalBusiness',
           name: 'TD Terrassement 37',
-          url: 'https://terrassement.td-locationbenne37.fr',
+          telephone: '+33601370443',
+          address: {
+            '@type': 'PostalAddress',
+            streetAddress: '15 Rue des Rabatteries',
+            addressLocality: 'Fondettes',
+            postalCode: '37230',
+            addressCountry: 'FR'
+          },
+          url: SITE_URL,
           sameAs: ['https://share.google/QKpfCyuEupbTsyRvt', 'https://td-locationbenne37.fr']
         },
         areaServed: {
@@ -54,8 +68,8 @@ useHead({
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://terrassement.td-locationbenne37.fr' },
-          { '@type': 'ListItem', position: 2, name: 'Zones', item: 'https://terrassement.td-locationbenne37.fr/zones' },
+          { '@type': 'ListItem', position: 1, name: 'Accueil', item: SITE_URL },
+          { '@type': 'ListItem', position: 2, name: 'Zones', item: `${SITE_URL}/zones` },
           { '@type': 'ListItem', position: 3, name: ville.nom, item: canonicalUrl }
         ]
       })
@@ -66,10 +80,9 @@ useHead({
 
 <template>
   <div v-if="ville">
-    <!-- Hero -->
     <section class="hero-gradient text-white py-16">
       <div class="max-w-6xl mx-auto px-4">
-        <nav class="flex items-center gap-2 text-green-200 text-sm mb-4">
+        <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-green-200 text-sm mb-4">
           <NuxtLink to="/" class="hover:text-white">Accueil</NuxtLink>
           <UIcon name="i-lucide-chevron-right" class="text-xs" />
           <NuxtLink to="/zones" class="hover:text-white">Zones</NuxtLink>
@@ -91,13 +104,16 @@ useHead({
           </span>
         </div>
         <div class="flex flex-wrap gap-3">
-          <UButton to="/contact" label="Devis gratuit" icon="i-lucide-phone" :style="{ backgroundColor: '#C4A35A', color: 'white' }" class="font-semibold" />
+          <a href="tel:+33601370443" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-white text-sm" style="background-color: #C4A35A">
+            <UIcon name="i-lucide-phone" />
+            06 01 37 04 43
+          </a>
+          <UButton to="/contact" label="Devis gratuit" icon="i-lucide-send" variant="outline" class="border-white/40 text-white hover:bg-white/10" />
           <UButton to="/services" label="Nos services" variant="outline" class="border-white/40 text-white hover:bg-white/10" />
         </div>
       </div>
     </section>
 
-    <!-- Content -->
     <section class="py-16 bg-white">
       <div class="max-w-6xl mx-auto px-4">
         <div class="grid md:grid-cols-3 gap-8">
@@ -115,11 +131,7 @@ useHead({
                 Secteurs couverts {{ ville.displayName }}
               </h3>
               <div class="flex flex-wrap gap-2">
-                <span
-                  v-for="q in ville.quartiers"
-                  :key="q"
-                  class="bg-white border border-stone-200 rounded-lg px-3 py-1 text-sm text-stone-700"
-                >
+                <span v-for="q in ville.quartiers" :key="q" class="bg-white border border-stone-200 rounded-lg px-3 py-1 text-sm text-stone-700">
                   {{ q }}
                 </span>
               </div>
@@ -128,7 +140,13 @@ useHead({
             <div class="mt-8 p-6 rounded-xl text-white" style="background-color: #2D5016">
               <h3 class="font-semibold mb-2">Intervention à {{ ville.nom }} — Devis gratuit</h3>
               <p class="text-green-100 text-sm mb-4">Vous avez un projet de terrassement {{ ville.displayName }} ? Contactez-nous pour un devis gratuit et personnalisé.</p>
-              <UButton to="/contact" label="Nous contacter maintenant" icon="i-lucide-arrow-right" :style="{ backgroundColor: '#C4A35A', color: 'white' }" />
+              <div class="flex flex-wrap gap-3">
+                <a href="tel:+33601370443" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-semibold text-sm text-white" style="background-color: #C4A35A">
+                  <UIcon name="i-lucide-phone" />
+                  06 01 37 04 43
+                </a>
+                <UButton to="/contact" label="Formulaire de contact" icon="i-lucide-arrow-right" variant="outline" class="border-white/40 text-white hover:bg-white/10" size="sm" />
+              </div>
             </div>
           </div>
 
@@ -155,6 +173,15 @@ useHead({
               </ul>
             </div>
 
+            <div class="rounded-xl p-5 text-white" style="background-color: #2D5016">
+              <h3 class="font-semibold mb-2 flex items-center gap-2">
+                <UIcon name="i-lucide-phone" />
+                Appelez-nous
+              </h3>
+              <a href="tel:+33601370443" class="text-xl font-bold hover:underline block mb-1">06 01 37 04 43</a>
+              <p class="text-green-100 text-xs">Lun–Ven, réponse rapide</p>
+            </div>
+
             <div class="bg-amber-50 border border-amber-200 rounded-xl p-5">
               <h3 class="font-semibold text-amber-900 mb-2">Avis clients</h3>
               <p class="text-amber-800 text-sm mb-3">Consultez les avis de nos clients sur Google Business.</p>
@@ -173,7 +200,6 @@ useHead({
       </div>
     </section>
 
-    <!-- Nearby cities -->
     <section v-if="nearbyVilles.length" class="py-12 section-earth">
       <div class="max-w-6xl mx-auto px-4">
         <h2 class="text-xl font-bold text-stone-900 mb-6">Communes proches desservies</h2>

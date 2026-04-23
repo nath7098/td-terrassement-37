@@ -1,12 +1,104 @@
 <script setup lang="ts">
+const SITE_URL = 'https://terrassement.td-locationbenne37.fr'
+
 useSeoMeta({
   title: 'Nos services — Terrassement, Excavation & Nivellement | TD Terrassement 37',
   description: 'TD Terrassement 37 réalise vos travaux de terrassement général, excavation et nivellement en Indre-et-Loire. Découvrez nos prestations pour particuliers et professionnels.',
   ogTitle: 'Services de terrassement — TD Terrassement 37',
-  ogDescription: 'Terrassement général, excavation, nivellement & remblaiement en Indre-et-Loire.',
-  ogType: 'website'
+  ogDescription: 'Terrassement général, excavation, nivellement & remblaiement en Indre-et-Loire. Devis gratuit.',
+  ogType: 'website',
+  ogUrl: `${SITE_URL}/services`,
+  ogImage: `${SITE_URL}/og-default.jpg`,
+  twitterCard: 'summary_large_image',
+  twitterTitle: 'Services — TD Terrassement 37',
+  twitterDescription: 'Terrassement général, excavation, nivellement & remblaiement en Indre-et-Loire.',
+  twitterImage: `${SITE_URL}/og-default.jpg`
 })
-useHead({ link: [{ rel: 'canonical', href: 'https://terrassement.td-locationbenne37.fr/services' }] })
+
+useHead({
+  link: [{ rel: 'canonical', href: `${SITE_URL}/services` }],
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Accueil', item: SITE_URL },
+          { '@type': 'ListItem', position: 2, name: 'Services', item: `${SITE_URL}/services` }
+        ]
+      })
+    },
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        name: 'Services de terrassement — TD Terrassement 37',
+        itemListElement: [
+          {
+            '@type': 'ListItem', position: 1,
+            item: {
+              '@type': 'Service',
+              name: 'Terrassement général',
+              description: 'Préparation complète des terrains : débroussaillage, décapage, mouvements de terres, compactage.',
+              provider: { '@type': 'LocalBusiness', name: 'TD Terrassement 37', telephone: '+33601370443' },
+              areaServed: 'Indre-et-Loire',
+              serviceType: 'Terrassement général'
+            }
+          },
+          {
+            '@type': 'ListItem', position: 2,
+            item: {
+              '@type': 'Service',
+              name: 'Excavation',
+              description: 'Fouilles en rigole, en grande masse, tranchées réseaux, terrassement piscines et garages enterrés.',
+              provider: { '@type': 'LocalBusiness', name: 'TD Terrassement 37', telephone: '+33601370443' },
+              areaServed: 'Indre-et-Loire',
+              serviceType: 'Excavation'
+            }
+          },
+          {
+            '@type': 'ListItem', position: 3,
+            item: {
+              '@type': 'Service',
+              name: 'Nivellement & remblaiement',
+              description: 'Mise à niveau de terrain, remblaiement de fouilles, création de talus, préparation de plateformes stabilisées.',
+              provider: { '@type': 'LocalBusiness', name: 'TD Terrassement 37', telephone: '+33601370443' },
+              areaServed: 'Indre-et-Loire',
+              serviceType: 'Nivellement'
+            }
+          }
+        ]
+      })
+    },
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'Quelle est la différence entre terrassement général et excavation ?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Le terrassement général désigne l\'ensemble des travaux de préparation de terrain (déblai, remblai, compactage). L\'excavation est un creusement précis et localisé pour créer fondations, tranchées ou sous-sols.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'Pour quels projets réalisez-vous du terrassement ?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'TD Terrassement 37 intervient pour tous les projets : construction de maison individuelle, piscine, garage enterré, voirie privée, aménagement paysager, travaux agricoles, chantiers BTP professionnels.'
+            }
+          }
+        ]
+      })
+    }
+  ]
+})
 
 const services = [
   {
@@ -61,11 +153,11 @@ const services = [
   <div>
     <section class="hero-gradient text-white py-16">
       <div class="max-w-6xl mx-auto px-4">
-        <div class="flex items-center gap-2 text-green-200 text-sm mb-4">
+        <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-green-200 text-sm mb-4">
           <NuxtLink to="/" class="hover:text-white">Accueil</NuxtLink>
           <UIcon name="i-lucide-chevron-right" class="text-xs" />
           <span>Services</span>
-        </div>
+        </nav>
         <h1 class="text-4xl md:text-5xl font-bold mb-4">Nos prestations<br><span style="color: #C4A35A">de terrassement</span></h1>
         <p class="text-green-100 text-lg max-w-2xl">Expertise et matériel professionnel pour tous vos travaux de terrassement en Indre-et-Loire (37).</p>
       </div>
@@ -73,7 +165,7 @@ const services = [
 
     <section class="py-16 bg-white">
       <div class="max-w-6xl mx-auto px-4 space-y-12">
-        <div v-for="s in services" :key="s.slug" :id="s.slug" class="grid md:grid-cols-2 gap-8 items-start">
+        <div v-for="s in services" :key="s.slug" :id="s.slug" class="grid md:grid-cols-2 gap-8 items-start scroll-mt-20">
           <div>
             <div class="flex items-center gap-3 mb-4">
               <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl text-white" :style="{ backgroundColor: s.color }">
@@ -101,7 +193,13 @@ const services = [
       <div class="max-w-4xl mx-auto px-4 text-center">
         <h2 class="text-2xl font-bold text-stone-900 mb-4">Prêt à démarrer votre projet ?</h2>
         <p class="text-stone-600 mb-6">Contactez-nous pour discuter de vos besoins. Devis gratuit sous 24h en Indre-et-Loire.</p>
-        <UButton to="/contact" size="lg" label="Obtenir un devis gratuit" icon="i-lucide-phone" :style="{ backgroundColor: '#2D5016', color: 'white' }" />
+        <div class="flex flex-wrap justify-center gap-3">
+          <a href="tel:+33601370443" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white" style="background-color: #2D5016">
+            <UIcon name="i-lucide-phone" />
+            06 01 37 04 43
+          </a>
+          <UButton to="/contact" size="lg" label="Formulaire de devis" icon="i-lucide-send" variant="outline" :style="{ borderColor: '#2D5016', color: '#2D5016' }" />
+        </div>
       </div>
     </section>
   </div>

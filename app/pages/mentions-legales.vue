@@ -1,19 +1,34 @@
 <script setup lang="ts">
+const SITE_URL = 'https://terrassement.td-locationbenne37.fr'
+
 useSeoMeta({
   title: 'Mentions légales — TD Terrassement 37',
   description: 'Mentions légales du site TD Terrassement 37, entreprise de terrassement en Indre-et-Loire.',
   robots: 'noindex'
 })
-useHead({ link: [{ rel: 'canonical', href: 'https://terrassement.td-locationbenne37.fr/mentions-legales' }] })
+useHead({
+  link: [{ rel: 'canonical', href: `${SITE_URL}/mentions-legales` }],
+  script: [{
+    type: 'application/ld+json',
+    innerHTML: JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'Mentions légales', item: `${SITE_URL}/mentions-legales` }
+      ]
+    })
+  }]
+})
 </script>
 
 <template>
   <div class="max-w-3xl mx-auto px-4 py-16">
-    <div class="flex items-center gap-2 text-stone-500 text-sm mb-8">
+    <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-stone-500 text-sm mb-8">
       <NuxtLink to="/" class="hover:text-stone-700">Accueil</NuxtLink>
       <UIcon name="i-lucide-chevron-right" class="text-xs" />
       <span>Mentions légales</span>
-    </div>
+    </nav>
 
     <h1 class="text-3xl font-bold text-stone-900 mb-8">Mentions légales</h1>
 
@@ -22,6 +37,8 @@ useHead({ link: [{ rel: 'canonical', href: 'https://terrassement.td-locationbenn
         <h2 class="text-xl font-bold text-stone-800 mb-3">Éditeur du site</h2>
         <p class="text-stone-700">
           <strong>TD Terrassement 37</strong><br>
+          15 Rue des Rabatteries, 37230 Fondettes<br>
+          Téléphone : <a href="tel:+33601370443" class="text-green-700 hover:underline">06 01 37 04 43</a><br>
           Site web : <a href="https://terrassement.td-locationbenne37.fr" class="text-green-700 hover:underline">https://terrassement.td-locationbenne37.fr</a><br>
           Activité : Travaux de terrassement en Indre-et-Loire (37)
         </p>
