@@ -189,7 +189,7 @@ async function handleSubmit() {
 
               <div>
                 <label class="block text-sm font-medium text-stone-700 mb-1" for="prestation">Type de prestation</label>
-                <USelect id="prestation" v-model="form.prestation" :options="prestations" placeholder="Choisir une prestation" size="lg" />
+                <USelect id="prestation" v-model="form.prestation" :items="prestations" placeholder="Choisir une prestation" size="lg" />
               </div>
 
               <div>
