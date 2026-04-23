@@ -159,6 +159,23 @@ useHead({
 
           <div class="space-y-4">
             <div class="bg-stone-50 rounded-xl p-5">
+              <h3 class="font-semibold text-stone-800 mb-4 flex items-center gap-2">
+                <UIcon name="i-lucide-info" style="color: #2D5016" />
+                Contexte local
+              </h3>
+              <ul class="space-y-3 text-sm">
+                <li class="flex items-start gap-2 text-stone-700">
+                  <UIcon name="i-lucide-layers" class="flex-shrink-0 mt-0.5" style="color: #8B6914" />
+                  <span><span class="font-medium">Type de sol :</span> {{ ville.typeSol }}</span>
+                </li>
+                <li class="flex items-start gap-2 text-stone-700">
+                  <UIcon name="i-lucide-badge-check" class="flex-shrink-0 mt-0.5" style="color: #2D5016" />
+                  <span>{{ ville.pointFort }}</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="bg-stone-50 rounded-xl p-5">
               <h3 class="font-semibold text-stone-800 mb-4">Nos prestations {{ ville.displayName }}</h3>
               <ul class="space-y-3">
                 <li class="flex items-center gap-2 text-sm text-stone-700">

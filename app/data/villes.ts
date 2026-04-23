@@ -11,6 +11,8 @@ export interface Ville {
   description: string
   metaDescription: string
   contenuUnique: string
+  typeSol: string
+  pointFort: string
 }
 
 export const villes: Record<string, Ville> = {
@@ -26,6 +28,8 @@ export const villes: Record<string, Ville> = {
     villesProches: ['fondettes', 'joue-les-tours', 'la-ville-aux-dames', 'notre-dame-doe', 'savonnieres'],
     description: 'Terrassement professionnel à Tours, préfecture d\'Indre-et-Loire. Excavation, nivellement et remblaiement.',
     metaDescription: 'Terrassement à Tours (37000) — TD Terrassement 37. Excavation, nivellement, remblaiement. Devis gratuit. Intervention rapide dans tout le 37.',
+    typeSol: 'Tuffeau et argile',
+    pointFort: 'Zone urbaine dense — maîtrise des chantiers en milieu contraint',
     contenuUnique: `Tours, préfecture d'Indre-et-Loire avec ses 136 000 habitants, est notre zone d'intervention principale pour toutes les prestations de terrassement. TD Terrassement 37 intervient sur l'ensemble de la ville de Tours, du centre historique aux quartiers périphériques comme Deux-Lions, Sanitas, Rabelais et Prébendes.
 
 Nos équipes expérimentées réalisent des travaux de terrassement général, d'excavation et de nivellement sur tous types de chantiers tourangeaux. Que vous soyez un particulier souhaitant aménager votre terrain ou un professionnel du BTP sur un chantier de grande envergure, nous intervenons avec le matériel adapté.
@@ -48,6 +52,8 @@ En tant qu'entreprise de terrassement implantée en Indre-et-Loire, nous interve
     villesProches: ['tours', 'notre-dame-doe', 'savonnieres'],
     description: 'Terrassement à Fondettes. Excavation et nivellement professionnels au nord-ouest de Tours.',
     metaDescription: 'Terrassement à Fondettes (37230) — TD Terrassement 37. Excavation, nivellement, remblaiement. Devis gratuit. Entreprise sérieuse en Indre-et-Loire.',
+    typeSol: 'Argile et calcaire',
+    pointFort: 'Commune siège de l\'entreprise — intervention en 30 min maximum',
     contenuUnique: `Fondettes, commune de 10 500 habitants située au nord-ouest de Tours, bénéficie des services professionnels de TD Terrassement 37. Cette ville résidentielle dynamique connaît une activité importante de construction et de rénovation, et nos équipes accompagnent aussi bien les particuliers que les entreprises du bâtiment.
 
 Nous intervenons dans tous les secteurs de Fondettes pour vos travaux de terrassement : le centre-ville historique, le quartier de Vallières, Lussault et La Guignière. Notre proximité avec Fondettes nous permet de garantir des délais d'intervention très courts et une grande réactivité face à vos besoins.
@@ -70,6 +76,8 @@ Contactez TD Terrassement 37 pour obtenir un devis gratuit pour votre projet de 
     villesProches: ['tours', 'savonnieres', 'azay-le-rideau'],
     description: 'Terrassement à Joué-lès-Tours. Deuxième ville d\'Indre-et-Loire, service professionnel et réactif.',
     metaDescription: 'Terrassement à Joué-lès-Tours (37300) — TD Terrassement 37. Excavation & nivellement. Devis gratuit. Intervention rapide en Indre-et-Loire.',
+    typeSol: 'Limon et argile',
+    pointFort: 'Forte croissance résidentielle — expertise en viabilisation de lotissements',
     contenuUnique: `Joué-lès-Tours, deuxième ville la plus peuplée d'Indre-et-Loire avec 38 000 habitants, représente un secteur d'activité majeur pour TD Terrassement 37. Cette commune en plein développement connaît une forte dynamique de construction et de rénovation qui nécessite des travaux de terrassement réguliers.
 
 Nous couvrons l'intégralité du territoire de Joué-lès-Tours pour vos projets de terrassement général, d'excavation et de nivellement. Des quartiers résidentiels de La Rabière et Beaulieu aux zones d'activités des Atlantes, nos équipes interviennent avec professionnalisme et efficacité.
@@ -92,6 +100,8 @@ Pour vos travaux de terrassement à Joué-lès-Tours en Indre-et-Loire, contacte
     villesProches: ['chinon', 'langeais'],
     description: 'Terrassement à Bourgueil au cœur du vignoble. Travaux de qualité en Indre-et-Loire.',
     metaDescription: 'Terrassement à Bourgueil (37140) — TD Terrassement 37. Excavation, nivellement & remblaiement. Devis gratuit. Entreprise locale en Indre-et-Loire.',
+    typeSol: 'Tuffeau et sable viticole',
+    pointFort: 'Expertise en terrassement viticole sur parcelles AOC',
     contenuUnique: `Bourgueil, commune viticole de 3 900 habitants dans le nord-ouest de l'Indre-et-Loire, fait partie de notre zone d'intervention pour les travaux de terrassement. Cette petite ville au cœur de l'appellation Bourgueil AOC connaît une activité de construction et de rénovation soutenue.
 
 TD Terrassement 37 intervient à Bourgueil avec le même niveau de professionnalisme que dans l'agglomération tourangelle. Nos équipes s'adaptent aux spécificités locales, notamment les accès parfois étroits dans les zones viticoles et les contraintes liées à la préservation du patrimoine.
@@ -114,6 +124,8 @@ Contactez TD Terrassement 37 pour vos travaux de terrassement, excavation ou niv
     villesProches: ['tours', 'montlouis-sur-loire'],
     description: 'Terrassement à La Ville-aux-Dames. Service professionnel à l\'est de Tours en Indre-et-Loire.',
     metaDescription: 'Terrassement à La Ville-aux-Dames (37700) — TD Terrassement 37. Excavation & nivellement. Devis gratuit. Intervention rapide en Indre-et-Loire.',
+    typeSol: 'Alluvions ligériennes',
+    pointFort: 'Terrains de vallée — maîtrise du drainage et des nappes superficielles',
     contenuUnique: `La Ville-aux-Dames, commune de 5 200 habitants à l'est de Tours, bénéficie des services de terrassement professionnel de TD Terrassement 37. Cette ville résidentielle en développement, proche de la vallée de la Loire, connaît une activité de construction et de rénovation régulière.
 
 Nos équipes interviennent dans tous les secteurs de La Ville-aux-Dames pour vos projets de terrassement : du centre-ville aux quartiers résidentiels des Vallées et de La Borde. Notre positionnement géographique nous permet d'assurer des interventions rapides depuis Tours, garantissant réactivité et efficacité pour vos chantiers.
@@ -136,6 +148,8 @@ Pour un devis gratuit concernant vos travaux de terrassement à La Ville-aux-Dam
     villesProches: ['bourgueil', 'azay-le-rideau', 'langeais'],
     description: 'Terrassement à Chinon. Service de qualité dans la cité médiévale d\'Indre-et-Loire.',
     metaDescription: 'Terrassement à Chinon (37500) — TD Terrassement 37. Excavation, nivellement & remblaiement. Devis gratuit. Entreprise locale 37.',
+    typeSol: 'Tuffeau et schiste',
+    pointFort: 'Spécialiste des sous-sols en zone patrimoniale classée',
     contenuUnique: `Chinon, ville historique de 8 000 habitants dominée par sa forteresse médiévale, fait partie de notre zone d'intervention dans le sud-ouest de l'Indre-et-Loire. Cette cité classée Ville d'Art et d'Histoire connaît une importante activité de rénovation patrimoniale et de construction neuve qui nécessite des travaux de terrassement spécialisés.
 
 TD Terrassement 37 intervient à Chinon avec expertise et respect des contraintes patrimoniales. Nous réalisons des travaux de terrassement général adaptés aux spécificités de chaque secteur : du centre historique avec ses ruelles aux zones résidentielles plus modernes de Saint-Jacques et du Coteau Sainte-Radegonde.
@@ -158,6 +172,8 @@ Contactez TD Terrassement 37 pour vos projets de terrassement, excavation ou niv
     villesProches: ['tours', 'chinon', 'bourgueil'],
     description: 'Terrassement à Langeais. Service professionnel en Indre-et-Loire près du château.',
     metaDescription: 'Terrassement à Langeais (37130) — TD Terrassement 37. Excavation, nivellement, remblaiement. Devis gratuit. Intervention rapide en Indre-et-Loire.',
+    typeSol: 'Tuffeau et alluvions',
+    pointFort: 'Maîtrise des terrains de coteau et de plaine alluviale',
     contenuUnique: `Langeais, petite ville de 4 200 habitants entre Tours et Chinon, célèbre pour son château du XVe siècle, bénéficie du service de terrassement professionnel de TD Terrassement 37. Cette commune en bord de Loire connaît une activité de construction et de rénovation régulière.
 
 Nos équipes interviennent à Langeais pour tous vos travaux de terrassement général, d'excavation et de nivellement. Du centre historique aux quartiers résidentiels de Saint-Jean et Saint-Laurent, nous adaptons nos méthodes aux spécificités de chaque secteur de la commune.
@@ -180,6 +196,8 @@ Pour vos travaux de terrassement à Langeais, faites confiance à TD Terrassemen
     villesProches: ['tours', 'notre-dame-doe'],
     description: 'Terrassement à Châteaurenault. Service professionnel dans le nord de la Touraine.',
     metaDescription: 'Terrassement à Châteaurenault (37110) — TD Terrassement 37. Excavation & nivellement. Devis gratuit. Entreprise de terrassement 37.',
+    typeSol: 'Argile et limon',
+    pointFort: 'Expérience sur grandes emprises et terrains industriels',
     contenuUnique: `Châteaurenault, commune de 5 500 habitants dans le nord de l'Indre-et-Loire, représente un secteur important pour TD Terrassement 37. Cette ville industrielle et résidentielle en bordure de la Brenne connaît une activité de construction et de rénovation soutenue qui génère des besoins réguliers en terrassement.
 
 Nous desservons l'ensemble du territoire de Châteaurenault pour vos travaux de terrassement général : du centre historique avec son château aux quartiers résidentiels de La Gaudellerie et des Hâtifs. Notre équipe intervient avec l'outillage adapté à chaque type de chantier en Indre-et-Loire.
@@ -202,6 +220,8 @@ Contactez TD Terrassement 37 pour vos projets de terrassement à Châteaurenault
     villesProches: ['tours', 'la-ville-aux-dames'],
     description: 'Terrassement à Montlouis-sur-Loire. Service de qualité en vallée de Loire.',
     metaDescription: 'Terrassement à Montlouis-sur-Loire (37270) — TD Terrassement 37. Excavation & nivellement. Devis gratuit. Intervention rapide en Indre-et-Loire.',
+    typeSol: 'Tuffeau et sables ligériens',
+    pointFort: 'Référence en excavation de caves viticoles et troglodytiques',
     contenuUnique: `Montlouis-sur-Loire, ville de 10 700 habitants entre Tours et Amboise, célèbre pour son appellation viticole AOC, fait partie de notre zone d'intervention pour les travaux de terrassement. Cette commune dynamique en bord de Loire connaît un développement régulier avec de nombreux projets de construction et d'aménagement.
 
 TD Terrassement 37 intervient à Montlouis-sur-Loire pour tous vos travaux de terrassement général, d'excavation et de nivellement. Nos équipes connaissent parfaitement les spécificités géologiques de ce secteur de la vallée de la Loire, notamment les terrains viticoles et les coteaux de tuffeau caractéristiques de la région.
@@ -224,6 +244,8 @@ Contactez TD Terrassement 37 pour un devis gratuit concernant vos travaux de ter
     villesProches: ['tours', 'langeais'],
     description: 'Terrassement à Château-la-Vallière. Service rural professionnel en Indre-et-Loire.',
     metaDescription: 'Terrassement à Château-la-Vallière (37330) — TD Terrassement 37. Excavation & nivellement. Devis gratuit. Entreprise locale 37.',
+    typeSol: 'Sable et argile forestière',
+    pointFort: 'Intervention en milieu rural et grandes propriétés',
     contenuUnique: `Château-la-Vallière, petite commune de 1 600 habitants dans le nord-ouest de l'Indre-et-Loire, bénéficie du service de terrassement professionnel de TD Terrassement 37, même en zone rurale. Cette commune paisible, connue pour sa base de loisirs et son cadre naturel préservé, connaît une activité de terrassement principalement liée aux projets résidentiels.
 
 TD Terrassement 37 s'engage à desservir Château-la-Vallière avec le même professionnalisme que dans les grandes communes du département. Nous comprenons les spécificités des zones rurales de l'Indre-et-Loire : chemins d'accès parfois étroits, propriétés dispersées, et besoins souvent liés à la rénovation de bâti ancien ou à l'aménagement de grandes propriétés.
@@ -246,6 +268,8 @@ Pour vos travaux de terrassement à Château-la-Vallière, contactez TD Terrasse
     villesProches: ['tours', 'chinon', 'joue-les-tours'],
     description: 'Terrassement à Azay-le-Rideau. Service de qualité près du château de la Renaissance.',
     metaDescription: 'Terrassement à Azay-le-Rideau (37190) — TD Terrassement 37. Excavation & nivellement. Devis gratuit. Entreprise sérieuse en Indre-et-Loire.',
+    typeSol: 'Tuffeau et zones humides',
+    pointFort: 'Expertise en proximité de cours d\'eau et zones Natura 2000',
     contenuUnique: `Azay-le-Rideau, commune de 3 500 habitants célèbre pour son château Renaissance au bord de l'Indre, fait partie de notre zone d'intervention pour les travaux de terrassement. Cette petite ville touristique et résidentielle connaît une activité de construction et de rénovation régulière dans un cadre patrimonial exceptionnel.
 
 TD Terrassement 37 intervient à Azay-le-Rideau avec une attention particulière aux contraintes patrimoniales et environnementales. Nos travaux de terrassement général respectent scrupuleusement les réglementations locales de protection du patrimoine et de préservation de l'environnement naturel de la vallée de l'Indre.
@@ -268,6 +292,8 @@ Contactez TD Terrassement 37 pour vos travaux de terrassement à Azay-le-Rideau.
     villesProches: ['tours', 'fondettes', 'chateaurenault'],
     description: 'Terrassement à Notre-Dame-d\'Oé. Service rapide au nord de Tours en Indre-et-Loire.',
     metaDescription: 'Terrassement à Notre-Dame-d\'Oé (37390) — TD Terrassement 37. Excavation, nivellement & remblaiement. Devis gratuit. Intervention rapide 37.',
+    typeSol: 'Calcaire et argile',
+    pointFort: 'Secteur en forte expansion résidentielle — terrains à bâtir',
     contenuUnique: `Notre-Dame-d'Oé, commune de 4 000 habitants au nord de l'agglomération tourangelle, bénéficie d'un service de terrassement de proximité avec TD Terrassement 37. Cette ville résidentielle en plein développement connaît une forte activité de construction de maisons individuelles qui génère des besoins importants en terrassement.
 
 Nous intervenons dans tous les secteurs de Notre-Dame-d'Oé pour vos travaux de terrassement : du centre-bourg aux nouveaux quartiers des Hauts d'Oé et de La Martinière. Notre proximité avec cette commune du nord tourangeau nous permet de garantir des délais d'intervention très courts.
@@ -290,6 +316,8 @@ Pour vos projets de terrassement, excavation ou nivellement à Notre-Dame-d'Oé,
     villesProches: ['tours', 'joue-les-tours', 'fondettes', 'azay-le-rideau'],
     description: 'Terrassement à Savonnières. Service professionnel près de Villandry en Indre-et-Loire.',
     metaDescription: 'Terrassement à Savonnières (37510) — TD Terrassement 37. Excavation & nivellement. Devis gratuit. Entreprise de terrassement locale 37.',
+    typeSol: 'Tuffeau et calcaire karstique',
+    pointFort: 'Connaissance des formations karstiques et des risques de cavités',
     contenuUnique: `Savonnières, commune de 3 200 habitants à l'ouest de Tours, célèbre pour ses grottes pétrifiantes, fait partie de notre zone d'intervention prioritaire pour les travaux de terrassement. Cette ville résidentielle proche du prestigieux château de Villandry connaît une activité de rénovation régulière.
 
 TD Terrassement 37 intervient à Savonnières pour tous vos projets de terrassement général, d'excavation et de nivellement. Notre connaissance de cette commune et de ses spécificités géologiques — notamment les zones de tuffeau et de calcaire caractéristiques de la vallée du Cher — nous permet d'adapter parfaitement nos interventions.
@@ -312,6 +340,8 @@ Faites confiance à TD Terrassement 37 pour vos travaux de terrassement à Savon
     villesProches: ['chinon', 'bourgueil', 'langeais'],
     description: 'Terrassement à Saumur. Service professionnel dans le Saumurois.',
     metaDescription: 'Terrassement à Saumur (49400) — TD Terrassement 37. Excavation, nivellement, remblaiement. Devis gratuit. Entreprise locale de terrassement.',
+    typeSol: 'Tuffeau saumurois',
+    pointFort: 'Référence en excavation de caves troglodytiques et sous-sols en tuffeau',
     contenuUnique: `Saumur, ville de 26 500 habitants surnommée la "Perle de l'Anjou", bénéficie du service de terrassement professionnel de TD Terrassement 37. Cette cité historique célèbre pour son château, son École de Cavalerie et ses vignobles, connaît une activité importante de construction et de rénovation.
 
 Nos équipes interviennent à Saumur pour tous types de travaux de terrassement général. Du centre historique avec ses maisons de tuffeau aux quartiers résidentiels de Nantilly et du Chemin-Vert, nous adaptons nos méthodes aux spécificités de chaque secteur.
@@ -334,6 +364,8 @@ Contactez TD Terrassement 37 pour vos projets de terrassement, excavation ou niv
     villesProches: ['tours', 'descartes', 'loches'],
     description: 'Terrassement à Châtellerault. Service professionnel dans la Vienne limitrophe.',
     metaDescription: 'Terrassement à Châtellerault (86100) — TD Terrassement 37. Excavation & nivellement. Devis gratuit. Entreprise de terrassement Indre-et-Loire.',
+    typeSol: 'Calcaire et alluvions de Vienne',
+    pointFort: 'Expertise en terrains de grande vallée alluviale',
     contenuUnique: `Châtellerault, ville de 31 500 habitants dans la Vienne, proche de l'Indre-et-Loire, bénéficie du service de terrassement professionnel de TD Terrassement 37. Cette cité industrielle et universitaire en bord de Vienne connaît une dynamique importante de rénovation urbaine et de développement immobilier.
 
 Nos équipes étendent leurs interventions jusqu'à Châtellerault pour répondre aux besoins en terrassement de cette zone frontalière entre Touraine et Poitou. Du centre historique avec son pont Henri IV aux quartiers de Châteauneuf, Targé et de la Manufacture, nous intervenons avec le même professionnalisme que dans l'Indre-et-Loire.
@@ -356,6 +388,8 @@ Contactez TD Terrassement 37 pour vos travaux de terrassement à Châtellerault.
     villesProches: ['tours', 'montlouis-sur-loire', 'chateaurenault'],
     description: 'Terrassement à Blois. Service professionnel dans le Loir-et-Cher limitrophe.',
     metaDescription: 'Terrassement à Blois (41000) — TD Terrassement 37. Excavation, nivellement & remblaiement. Devis gratuit. Entreprise locale de terrassement.',
+    typeSol: 'Calcaire et tuffeau ligérien',
+    pointFort: 'Maîtrise des chantiers sur coteaux en pente et terrains pentus',
     contenuUnique: `Blois, préfecture du Loir-et-Cher avec 45 900 habitants, fait partie de notre zone d'intervention étendue dans le Val de Loire. Cette ville royale célèbre pour son château Renaissance connaît une activité soutenue de rénovation patrimoniale et de développement urbain qui génère des besoins importants en terrassement.
 
 TD Terrassement 37 intervient à Blois pour accompagner les particuliers et professionnels dans leurs projets de terrassement. Nous couvrons l'ensemble des quartiers blésois : du centre historique classé aux quartiers résidentiels de Vienne, Kennedy et de la Quinière.
@@ -378,6 +412,8 @@ Faites confiance à TD Terrassement 37 pour vos projets de terrassement, excavat
     villesProches: ['loches', 'chatellerault'],
     description: 'Terrassement à Descartes. Service professionnel dans le sud de la Touraine.',
     metaDescription: 'Terrassement à Descartes (37160) — TD Terrassement 37. Excavation & nivellement. Devis gratuit. Entreprise de terrassement en Indre-et-Loire.',
+    typeSol: 'Alluvions de Creuse et calcaire',
+    pointFort: 'Sud Touraine — intervention sur chantiers ruraux et agricoles',
     contenuUnique: `Descartes, petite ville de 3 800 habitants dans le sud de l'Indre-et-Loire, patrie du philosophe René Descartes, bénéficie du service de terrassement professionnel de TD Terrassement 37. Cette cité en bord de Creuse connaît une activité régulière de rénovation de son patrimoine bâti ancien.
 
 Nos équipes desservent Descartes et sa région avec le même engagement de qualité que dans l'ensemble du département 37. Nous intervenons dans tous les secteurs de la ville pour vos travaux de terrassement général : du centre historique aux quartiers plus récents de Balesmes et de la Courtille.
@@ -400,6 +436,8 @@ Contactez TD Terrassement 37 pour vos projets de terrassement à Descartes. Devi
     villesProches: ['tours', 'montlouis-sur-loire', 'descartes'],
     description: 'Terrassement à Loches. Service professionnel dans la cité royale médiévale.',
     metaDescription: 'Terrassement à Loches (37600) — TD Terrassement 37. Excavation, nivellement & remblaiement. Devis gratuit. Entreprise locale 37.',
+    typeSol: 'Tuffeau et calcaire ligérien',
+    pointFort: 'Terrassement en zone Ville d\'Art et d\'Histoire — respect des contraintes archéologiques',
     contenuUnique: `Loches, ville de 6 500 habitants dans le sud de l'Indre-et-Loire, est une cité royale médiévale classée Ville d'Art et d'Histoire. Son donjon du XIe siècle et son château royal font de Loches un joyau patrimonial de la Touraine dont TD Terrassement 37 s'attache à respecter le caractère exceptionnel dans ses interventions.
 
 Nous réalisons des travaux de terrassement à Loches avec une attention particulière portée à la préservation de ce patrimoine. Nos équipes interviennent dans tous les quartiers de la ville : de la Cité royale fortifiée au centre-ville moderne et aux secteurs résidentiels de Beaulieu et Vignemont.
@@ -422,6 +460,8 @@ Faites confiance à TD Terrassement 37 pour vos travaux de terrassement à Loche
     villesProches: ['chinon', 'bourgueil', 'chatellerault'],
     description: 'Terrassement à Loudun. Service professionnel dans la Vienne limitrophe du 37.',
     metaDescription: 'Terrassement à Loudun (86200) — TD Terrassement 37. Excavation & nivellement. Devis gratuit. Intervention professionnelle depuis l\'Indre-et-Loire.',
+    typeSol: 'Calcaire et argile poitevine',
+    pointFort: 'Expertise transfrontalière Touraine/Poitou',
     contenuUnique: `Loudun, ville de 6 700 habitants dans le nord de la Vienne, proche de l'Indre-et-Loire, bénéficie du service de terrassement professionnel de TD Terrassement 37. Cette cité de caractère avec son histoire et son patrimoine Renaissance connaît une activité régulière de rénovation et de construction.
 
 Nos équipes étendent leurs interventions jusqu'à Loudun pour répondre aux besoins en terrassement de cette zone frontalière entre Touraine et Poitou. Du centre historique avec ses hôtels particuliers et sa Tour Carrée aux quartiers résidentiels modernes, nous intervenons avec efficacité et professionnalisme.
@@ -444,6 +484,8 @@ Contactez TD Terrassement 37 pour vos travaux de terrassement à Loudun. Devis g
     villesProches: ['tours', 'blois', 'chateaurenault'],
     description: 'Terrassement à Vendôme. Service professionnel dans le Loir-et-Cher.',
     metaDescription: 'Terrassement à Vendôme (41100) — TD Terrassement 37. Excavation, nivellement & remblaiement. Devis gratuit. Entreprise de terrassement locale.',
+    typeSol: 'Alluvions du Loir et calcaire',
+    pointFort: 'Maîtrise des chantiers en zones alluviales et inondables',
     contenuUnique: `Vendôme, sous-préfecture du Loir-et-Cher avec 15 800 habitants, fait partie de notre zone d'intervention étendue dans le Val de Loire. Cette ville d'art et d'histoire traversée par le Loir, célèbre pour son abbaye de la Trinité, connaît une activité importante de rénovation patrimoniale et de développement urbain.
 
 TD Terrassement 37 étend son service à Vendôme pour accompagner les particuliers et professionnels dans leurs projets de terrassement. Nos équipes interviennent dans tous les quartiers de la ville : du centre historique aux quartiers résidentiels de Rochambeau, des Capucins et de Champ-Rouillé.
