@@ -72,31 +72,6 @@ useHead({
         ]
       })
     },
-    {
-      type: 'application/ld+json',
-      innerHTML: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'Quelle est la différence entre terrassement général et excavation ?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Le terrassement général désigne l\'ensemble des travaux de préparation de terrain (déblai, remblai, compactage). L\'excavation est un creusement précis et localisé pour créer fondations, tranchées ou sous-sols.'
-            }
-          },
-          {
-            '@type': 'Question',
-            name: 'Pour quels projets réalisez-vous du terrassement ?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'TD Terrassement 37 intervient pour tous les projets : construction de maison individuelle, piscine, garage enterré, voirie privée, aménagement paysager, travaux agricoles, chantiers BTP professionnels.'
-            }
-          }
-        ]
-      })
-    }
   ]
 })
 
@@ -147,6 +122,42 @@ const services = [
     ]
   }
 ]
+
+const faqs = [
+  {
+    question: 'Quelle est la différence entre terrassement général et excavation ?',
+    answer: 'Le terrassement général désigne l\'ensemble des travaux de préparation de terrain (déblai, remblai, compactage). L\'excavation est un creusement précis et localisé pour créer des fondations, des tranchées ou des sous-sols.'
+  },
+  {
+    question: 'Pour quels projets réalisez-vous du terrassement ?',
+    answer: 'TD Terrassement 37 intervient pour tous les projets : construction de maison individuelle, piscine, garage enterré, voirie privée, aménagement paysager, travaux agricoles, chantiers BTP professionnels.'
+  },
+  {
+    question: 'Quel est le délai pour démarrer un chantier de terrassement ?',
+    answer: 'Le devis est gratuit et fourni sous 24 h. Le délai de démarrage dépend de la disponibilité des équipes et de la taille du chantier. Pour les urgences, nous faisons le maximum pour intervenir rapidement en Indre-et-Loire.'
+  },
+  {
+    question: 'Intervenez-vous hors d\'Indre-et-Loire ?',
+    answer: 'Oui, nous intervenons également dans les départements limitrophes : Maine-et-Loire (49), Loir-et-Cher (41) et Vienne (86) pour les chantiers proches de la frontière. Consultez notre page Zones pour la liste complète des communes desservies.'
+  }
+]
+
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map(f => ({
+          '@type': 'Question',
+          name: f.question,
+          acceptedAnswer: { '@type': 'Answer', text: f.answer }
+        }))
+      })
+    }
+  ]
+})
 </script>
 
 <template>
@@ -195,6 +206,22 @@ const services = [
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="py-16 bg-stone-50">
+      <div class="max-w-4xl mx-auto px-4">
+        <h2 class="text-2xl font-bold text-stone-900 mb-2 text-center">Questions fréquentes</h2>
+        <p class="text-stone-500 text-center mb-10">Tout ce que vous devez savoir sur nos prestations de terrassement.</p>
+        <dl class="space-y-4">
+          <div v-for="faq in faqs" :key="faq.question" class="bg-white rounded-2xl p-6 shadow-sm border border-stone-100">
+            <dt class="font-semibold text-stone-900 flex items-start gap-3 mb-3">
+              <UIcon name="i-lucide-circle-help" class="flex-shrink-0 mt-0.5 text-lg" style="color: #2D5016" />
+              {{ faq.question }}
+            </dt>
+            <dd class="text-stone-600 leading-relaxed pl-8">{{ faq.answer }}</dd>
+          </div>
+        </dl>
       </div>
     </section>
 
