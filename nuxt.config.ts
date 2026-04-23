@@ -11,6 +11,7 @@ const staticRoutes = [
   '/zones',
   '/contact',
   '/mentions-legales',
+  '/404',
   ...villeSlugs.map(s => `/zones/${s}`)
 ]
 
