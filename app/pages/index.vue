@@ -156,7 +156,8 @@ const faq = [
     <section class="hero-gradient text-white py-20 md:py-28 relative overflow-hidden">
       <div class="absolute inset-0 opacity-5" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')" />
       <div class="max-w-6xl mx-auto px-4 relative">
-        <div class="max-w-3xl">
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
           <div class="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-1.5 text-sm mb-6">
             <UIcon name="i-lucide-map-pin" />
             <span>Fondettes — Indre-et-Loire (37) et environs</span>
@@ -181,6 +182,15 @@ const faq = [
             <UButton to="/services" size="xl" label="Nos prestations" variant="outline" icon="i-lucide-arrow-right" class="border-white/40 text-white hover:bg-white/10" />
           </div>
         </div>
+        <!-- Photo hero — remplacer src avec l'image fournie par Nathan -->
+        <div class="hidden md:block">
+          <AppImage
+            alt="Chantier de terrassement en Indre-et-Loire — TD Terrassement 37"
+            aspect-ratio="4/3"
+            :rounded="true"
+          />
+        </div>
+        </div>
       </div>
     </section>
 
@@ -196,13 +206,21 @@ const faq = [
             v-for="s in services"
             :key="s.title"
             :to="`/services${s.anchor}`"
-            class="group bg-white rounded-2xl p-6 shadow-sm border border-stone-100 hover:shadow-md transition-shadow"
+            class="group bg-white rounded-2xl overflow-hidden shadow-sm border border-stone-100 hover:shadow-md transition-shadow"
           >
-            <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4 text-white text-xl" :style="{ backgroundColor: s.color }">
-              <UIcon :name="s.icon" />
+            <!-- Photo prestation — remplacer src avec l'image fournie par Nathan -->
+            <AppImage
+              :alt="`${s.title} en Indre-et-Loire — TD Terrassement 37`"
+              aspect-ratio="16/9"
+              class="w-full"
+            />
+            <div class="p-6">
+              <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4 text-white text-xl" :style="{ backgroundColor: s.color }">
+                <UIcon :name="s.icon" />
+              </div>
+              <h3 class="text-lg font-bold text-stone-900 mb-2 group-hover:underline">{{ s.title }}</h3>
+              <p class="text-stone-600 text-sm leading-relaxed">{{ s.desc }}</p>
             </div>
-            <h3 class="text-lg font-bold text-stone-900 mb-2 group-hover:underline">{{ s.title }}</h3>
-            <p class="text-stone-600 text-sm leading-relaxed">{{ s.desc }}</p>
           </NuxtLink>
         </div>
         <div class="text-center mt-8">

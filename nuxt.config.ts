@@ -1,8 +1,17 @@
 const villeSlugs = [
-  'azay-le-rideau','blois','bourgueil','chateau-la-valliere','chateaurenault',
-  'chatellerault','chinon','descartes','fondettes','joue-les-tours',
-  'la-ville-aux-dames','langeais','loches','loudun','montlouis-sur-loire',
-  'notre-dame-doe','saumur','savonnieres','tours','vendome'
+  'azay-le-rideau', 'blois', 'bourgueil', 'chateau-la-valliere', 'chateaurenault',
+  'chatellerault', 'chinon', 'descartes', 'fondettes', 'joue-les-tours',
+  'la-ville-aux-dames', 'langeais', 'loches', 'loudun', 'montlouis-sur-loire',
+  'notre-dame-doe', 'saumur', 'savonnieres', 'tours', 'vendome'
+]
+
+const staticRoutes = [
+  '/',
+  '/services',
+  '/zones',
+  '/contact',
+  '/mentions-legales',
+  ...villeSlugs.map(s => `/zones/${s}`)
 ]
 
 export default defineNuxtConfig({
@@ -16,6 +25,12 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   css: ['~/assets/css/main.css'],
+
+  runtimeConfig: {
+    public: {
+      googleSiteVerification: process.env.NUXT_PUBLIC_GOOGLE_SITE_VERIFICATION || ''
+    }
+  },
 
   site: {
     url: 'https://terrassement.td-locationbenne37.fr',
@@ -42,6 +57,13 @@ export default defineNuxtConfig({
 
   robots: {
     disallow: []
+  },
+
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: staticRoutes
+    }
   },
 
   app: {
