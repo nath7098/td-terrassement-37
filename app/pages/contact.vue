@@ -56,6 +56,11 @@ useHead({
   ]
 })
 
+const { emailjsPublicKey } = useRuntimeConfig().public
+
+const EMAILJS_SERVICE_ID = 'service_terrassement'
+const EMAILJS_TEMPLATE_ID = 'template_td_benne_37'
+
 const form = reactive({
   nom: '',
   prenom: '',
@@ -75,6 +80,7 @@ const prestations = [
 
 const submitted = ref(false)
 const loading = ref(false)
+const sendError = ref('')
 
 const errors = reactive({
   nom: '',
@@ -96,11 +102,31 @@ function validateForm() {
 async function handleSubmit() {
   if (!validateForm()) return
   loading.value = true
-  // TODO: intégrer EmailJS ou un service backend ici
-  // emailjs.send('SERVICE_ID', 'TEMPLATE_ID', { ...form })
-  await new Promise(r => setTimeout(r, 800))
-  loading.value = false
-  submitted.value = true
+  sendError.value = ''
+
+  try {
+    const emailjs = await import('@emailjs/browser')
+    await emailjs.send(
+      EMAILJS_SERVICE_ID,
+      EMAILJS_TEMPLATE_ID,
+      {
+        nom: form.nom,
+        prenom: form.prenom,
+        telephone: form.telephone,
+        email: form.email,
+        commune: form.commune,
+        prestation: form.prestation,
+        message: form.message,
+        type_prestation: 'terrassement'
+      },
+      { publicKey: emailjsPublicKey }
+    )
+    submitted.value = true
+  } catch {
+    sendError.value = 'Une erreur est survenue lors de l\'envoi. Veuillez réessayer ou nous appeler au 06 01 37 04 43.'
+  } finally {
+    loading.value = false
+  }
 }
 </script>
 
@@ -169,6 +195,11 @@ async function handleSubmit() {
                 <label class="block text-sm font-medium text-stone-700 mb-1" for="message">Message / description du projet *</label>
                 <UTextarea id="message" v-model="form.message" placeholder="Décrivez votre projet : type de travaux, superficie, localisation, contraintes particulières..." :rows="5" size="lg" :ui="{ base: errors.message ? 'ring-red-500' : '' }" />
                 <p v-if="errors.message" class="text-red-500 text-xs mt-1">{{ errors.message }}</p>
+              </div>
+
+              <div v-if="sendError" class="flex items-start gap-2 bg-red-50 border border-red-200 rounded-xl p-4 text-sm text-red-700">
+                <UIcon name="i-lucide-alert-circle" class="flex-shrink-0 mt-0.5" />
+                {{ sendError }}
               </div>
 
               <UButton
