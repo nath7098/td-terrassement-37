@@ -23,9 +23,9 @@ useHead({
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
-        itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Accueil', item: SITE_URL },
-          { '@type': 'ListItem', position: 2, name: 'Services', item: `${SITE_URL}/services` }
+        'itemListElement': [
+          { '@type': 'ListItem', 'position': 1, 'name': 'Accueil', 'item': SITE_URL },
+          { '@type': 'ListItem', 'position': 2, 'name': 'Services', 'item': `${SITE_URL}/services` }
         ]
       })
     },
@@ -34,44 +34,44 @@ useHead({
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'ItemList',
-        name: 'Services de terrassement — TD Terrassement 37',
-        itemListElement: [
+        'name': 'Services de terrassement — TD Terrassement 37',
+        'itemListElement': [
           {
-            '@type': 'ListItem', position: 1,
-            item: {
+            '@type': 'ListItem', 'position': 1,
+            'item': {
               '@type': 'Service',
-              name: 'Terrassement général',
-              description: 'Préparation complète des terrains : débroussaillage, décapage, mouvements de terres, compactage.',
-              provider: { '@type': 'LocalBusiness', name: 'TD Terrassement 37', telephone: '+33601370443' },
-              areaServed: 'Indre-et-Loire',
-              serviceType: 'Terrassement général'
+              'name': 'Terrassement général',
+              'description': 'Préparation complète des terrains : débroussaillage, décapage, mouvements de terres, compactage.',
+              'provider': { '@type': 'LocalBusiness', 'name': 'TD Terrassement 37', 'telephone': '+33601370443' },
+              'areaServed': 'Indre-et-Loire',
+              'serviceType': 'Terrassement général'
             }
           },
           {
-            '@type': 'ListItem', position: 2,
-            item: {
+            '@type': 'ListItem', 'position': 2,
+            'item': {
               '@type': 'Service',
-              name: 'Excavation',
-              description: 'Fouilles en rigole, en grande masse, tranchées réseaux, terrassement piscines et garages enterrés.',
-              provider: { '@type': 'LocalBusiness', name: 'TD Terrassement 37', telephone: '+33601370443' },
-              areaServed: 'Indre-et-Loire',
-              serviceType: 'Excavation'
+              'name': 'Excavation',
+              'description': 'Fouilles en rigole, en grande masse, tranchées réseaux, terrassement piscines et garages enterrés.',
+              'provider': { '@type': 'LocalBusiness', 'name': 'TD Terrassement 37', 'telephone': '+33601370443' },
+              'areaServed': 'Indre-et-Loire',
+              'serviceType': 'Excavation'
             }
           },
           {
-            '@type': 'ListItem', position: 3,
-            item: {
+            '@type': 'ListItem', 'position': 3,
+            'item': {
               '@type': 'Service',
-              name: 'Nivellement & remblaiement',
-              description: 'Mise à niveau de terrain, remblaiement de fouilles, création de talus, préparation de plateformes stabilisées.',
-              provider: { '@type': 'LocalBusiness', name: 'TD Terrassement 37', telephone: '+33601370443' },
-              areaServed: 'Indre-et-Loire',
-              serviceType: 'Nivellement'
+              'name': 'Nivellement & remblaiement',
+              'description': 'Mise à niveau de terrain, remblaiement de fouilles, création de talus, préparation de plateformes stabilisées.',
+              'provider': { '@type': 'LocalBusiness', 'name': 'TD Terrassement 37', 'telephone': '+33601370443' },
+              'areaServed': 'Indre-et-Loire',
+              'serviceType': 'Nivellement'
             }
           }
         ]
       })
-    },
+    }
   ]
 })
 
@@ -149,10 +149,10 @@ useHead({
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
-        mainEntity: faqs.map(f => ({
+        'mainEntity': faqs.map(f => ({
           '@type': 'Question',
-          name: f.question,
-          acceptedAnswer: { '@type': 'Answer', text: f.answer }
+          'name': f.question,
+          'acceptedAnswer': { '@type': 'Answer', 'text': f.answer }
         }))
       })
     }
@@ -164,28 +164,53 @@ useHead({
   <div>
     <section class="hero-gradient text-white py-16">
       <div class="max-w-6xl mx-auto px-4">
-        <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-green-200 text-sm mb-4">
-          <NuxtLink to="/" class="hover:text-white">Accueil</NuxtLink>
-          <UIcon name="i-lucide-chevron-right" class="text-xs" />
+        <nav
+          aria-label="Breadcrumb"
+          class="flex items-center gap-2 text-green-200 text-sm mb-4"
+        >
+          <NuxtLink
+            to="/"
+            class="hover:text-white"
+          >Accueil</NuxtLink>
+          <UIcon
+            name="i-lucide-chevron-right"
+            class="text-xs"
+          />
           <span>Services</span>
         </nav>
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">Nos prestations<br><span style="color: #C4A35A">de terrassement</span></h1>
-        <p class="text-green-100 text-lg max-w-2xl">Expertise et matériel professionnel pour tous vos travaux de terrassement en Indre-et-Loire (37).</p>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">
+          Nos prestations<br><span style="color: #C4A35A">de terrassement</span>
+        </h1>
+        <p class="text-green-100 text-lg max-w-2xl">
+          Expertise et matériel professionnel pour tous vos travaux de terrassement en Indre-et-Loire (37).
+        </p>
       </div>
     </section>
 
     <section class="py-16 bg-white">
       <div class="max-w-6xl mx-auto px-4 space-y-12">
-        <div v-for="s in services" :key="s.slug" :id="s.slug" class="scroll-mt-20">
+        <div
+          v-for="s in services"
+          :id="s.slug"
+          :key="s.slug"
+          class="scroll-mt-20"
+        >
           <div class="grid md:grid-cols-2 gap-8 items-start">
             <div>
               <div class="flex items-center gap-3 mb-4">
-                <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl text-white" :style="{ backgroundColor: s.color }">
+                <div
+                  class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl text-white"
+                  :style="{ backgroundColor: s.color }"
+                >
                   <UIcon :name="s.icon" />
                 </div>
-                <h2 class="text-2xl font-bold text-stone-900">{{ s.title }}</h2>
+                <h2 class="text-2xl font-bold text-stone-900">
+                  {{ s.title }}
+                </h2>
               </div>
-              <p class="text-stone-600 leading-relaxed mb-4">{{ s.intro }}</p>
+              <p class="text-stone-600 leading-relaxed mb-4">
+                {{ s.intro }}
+              </p>
               <!-- Photo de la prestation — remplacer src avec l'image fournie par Nathan -->
               <AppImage
                 :alt="`${s.title} par TD Terrassement 37 en Indre-et-Loire`"
@@ -193,13 +218,27 @@ useHead({
                 :rounded="true"
                 class="mb-6"
               />
-              <UButton to="/contact" label="Demander un devis" icon="i-lucide-arrow-right" :style="{ backgroundColor: s.color, color: 'white' }" />
+              <UButton
+                to="/contact"
+                label="Demander un devis"
+                icon="i-lucide-arrow-right"
+                :style="{ backgroundColor: s.color, color: 'white' }"
+              />
             </div>
             <div class="bg-stone-50 rounded-2xl p-6">
-              <h3 class="font-semibold text-stone-800 mb-4">Ce que nous réalisons :</h3>
+              <h3 class="font-semibold text-stone-800 mb-4">
+                Ce que nous réalisons :
+              </h3>
               <ul class="space-y-2">
-                <li v-for="d in s.details" :key="d" class="flex items-start gap-2 text-sm text-stone-700">
-                  <UIcon name="i-lucide-check-circle" class="text-green-600 mt-0.5 flex-shrink-0" />
+                <li
+                  v-for="d in s.details"
+                  :key="d"
+                  class="flex items-start gap-2 text-sm text-stone-700"
+                >
+                  <UIcon
+                    name="i-lucide-check-circle"
+                    class="text-green-600 mt-0.5 flex-shrink-0"
+                  />
                   {{ d }}
                 </li>
               </ul>
@@ -211,15 +250,29 @@ useHead({
 
     <section class="py-16 bg-stone-50">
       <div class="max-w-4xl mx-auto px-4">
-        <h2 class="text-2xl font-bold text-stone-900 mb-2 text-center">Questions fréquentes</h2>
-        <p class="text-stone-500 text-center mb-10">Tout ce que vous devez savoir sur nos prestations de terrassement.</p>
+        <h2 class="text-2xl font-bold text-stone-900 mb-2 text-center">
+          Questions fréquentes
+        </h2>
+        <p class="text-stone-500 text-center mb-10">
+          Tout ce que vous devez savoir sur nos prestations de terrassement.
+        </p>
         <dl class="space-y-4">
-          <div v-for="faq in faqs" :key="faq.question" class="bg-white rounded-2xl p-6 shadow-sm border border-stone-100">
+          <div
+            v-for="faq in faqs"
+            :key="faq.question"
+            class="bg-white rounded-2xl p-6 shadow-sm border border-stone-100"
+          >
             <dt class="font-semibold text-stone-900 flex items-start gap-3 mb-3">
-              <UIcon name="i-lucide-circle-help" class="flex-shrink-0 mt-0.5 text-lg" style="color: #2D5016" />
+              <UIcon
+                name="i-lucide-circle-help"
+                class="flex-shrink-0 mt-0.5 text-lg"
+                style="color: #2D5016"
+              />
               {{ faq.question }}
             </dt>
-            <dd class="text-stone-600 leading-relaxed pl-8">{{ faq.answer }}</dd>
+            <dd class="text-stone-600 leading-relaxed pl-8">
+              {{ faq.answer }}
+            </dd>
           </div>
         </dl>
       </div>
@@ -227,14 +280,29 @@ useHead({
 
     <section class="py-12 section-earth">
       <div class="max-w-4xl mx-auto px-4 text-center">
-        <h2 class="text-2xl font-bold text-stone-900 mb-4">Prêt à démarrer votre projet ?</h2>
-        <p class="text-stone-600 mb-6">Contactez-nous pour discuter de vos besoins. Devis gratuit sous 24h en Indre-et-Loire.</p>
+        <h2 class="text-2xl font-bold text-stone-900 mb-4">
+          Prêt à démarrer votre projet ?
+        </h2>
+        <p class="text-stone-600 mb-6">
+          Contactez-nous pour discuter de vos besoins. Devis gratuit sous 24h en Indre-et-Loire.
+        </p>
         <div class="flex flex-wrap justify-center gap-3">
-          <a href="tel:+33601370443" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white" style="background-color: #2D5016">
+          <a
+            href="tel:+33601370443"
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white"
+            style="background-color: #2D5016"
+          >
             <UIcon name="i-lucide-phone" />
             06 01 37 04 43
           </a>
-          <UButton to="/contact" size="lg" label="Formulaire de devis" icon="i-lucide-send" variant="outline" :style="{ borderColor: '#2D5016', color: '#2D5016' }" />
+          <UButton
+            to="/contact"
+            size="lg"
+            label="Formulaire de devis"
+            icon="i-lucide-send"
+            variant="outline"
+            :style="{ borderColor: '#2D5016', color: '#2D5016' }"
+          />
         </div>
       </div>
     </section>

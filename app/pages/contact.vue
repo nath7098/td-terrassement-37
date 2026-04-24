@@ -22,24 +22,24 @@ useHead({
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'LocalBusiness',
-        name: 'TD Terrassement 37',
-        telephone: '+33601370443',
-        address: {
+        'name': 'TD Terrassement 37',
+        'telephone': '+33601370443',
+        'address': {
           '@type': 'PostalAddress',
-          streetAddress: '15 Rue des Rabatteries',
-          addressLocality: 'Fondettes',
-          postalCode: '37230',
-          addressCountry: 'FR'
+          'streetAddress': '15 Rue des Rabatteries',
+          'addressLocality': 'Fondettes',
+          'postalCode': '37230',
+          'addressCountry': 'FR'
         },
-        geo: {
+        'geo': {
           '@type': 'GeoCoordinates',
-          latitude: 47.4019,
-          longitude: 0.6031
+          'latitude': 47.4019,
+          'longitude': 0.6031
         },
-        url: SITE_URL,
-        sameAs: ['https://share.google/QKpfCyuEupbTsyRvt', 'https://td-locationbenne37.fr'],
-        areaServed: 'Indre-et-Loire',
-        priceRange: '€€'
+        'url': SITE_URL,
+        'sameAs': ['https://share.google/QKpfCyuEupbTsyRvt', 'https://td-locationbenne37.fr'],
+        'areaServed': 'Indre-et-Loire',
+        'priceRange': '€€'
       })
     },
     {
@@ -47,9 +47,9 @@ useHead({
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
-        itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Accueil', item: SITE_URL },
-          { '@type': 'ListItem', position: 2, name: 'Contact', item: `${SITE_URL}/contact` }
+        'itemListElement': [
+          { '@type': 'ListItem', 'position': 1, 'name': 'Accueil', 'item': SITE_URL },
+          { '@type': 'ListItem', 'position': 2, 'name': 'Contact', 'item': `${SITE_URL}/contact` }
         ]
       })
     }
@@ -137,13 +137,26 @@ async function handleSubmit() {
   <div>
     <section class="hero-gradient text-white py-16">
       <div class="max-w-6xl mx-auto px-4">
-        <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-green-200 text-sm mb-4">
-          <NuxtLink to="/" class="hover:text-white">Accueil</NuxtLink>
-          <UIcon name="i-lucide-chevron-right" class="text-xs" />
+        <nav
+          aria-label="Breadcrumb"
+          class="flex items-center gap-2 text-green-200 text-sm mb-4"
+        >
+          <NuxtLink
+            to="/"
+            class="hover:text-white"
+          >Accueil</NuxtLink>
+          <UIcon
+            name="i-lucide-chevron-right"
+            class="text-xs"
+          />
           <span>Contact</span>
         </nav>
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">Contact &<br><span style="color: #C4A35A">Devis gratuit</span></h1>
-        <p class="text-green-100 text-lg max-w-xl">Décrivez votre projet et nous vous répondrons rapidement. Intervention en Indre-et-Loire et environs.</p>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">
+          Contact &<br><span style="color: #C4A35A">Devis gratuit</span>
+        </h1>
+        <p class="text-green-100 text-lg max-w-xl">
+          Décrivez votre projet et nous vous répondrons rapidement. Intervention en Indre-et-Loire et environs.
+        </p>
       </div>
     </section>
 
@@ -151,58 +164,170 @@ async function handleSubmit() {
       <div class="max-w-6xl mx-auto px-4">
         <div class="grid md:grid-cols-3 gap-8">
           <div class="md:col-span-2">
-            <div v-if="submitted" class="bg-green-50 border border-green-200 rounded-2xl p-8 text-center">
-              <UIcon name="i-lucide-check-circle" class="text-green-600 text-4xl mx-auto mb-4" />
-              <h2 class="text-xl font-bold text-green-800 mb-2">Message envoyé !</h2>
-              <p class="text-green-700">Nous avons bien reçu votre demande et vous répondrons dans les meilleurs délais.</p>
+            <div
+              v-if="submitted"
+              class="bg-green-50 border border-green-200 rounded-2xl p-8 text-center"
+            >
+              <UIcon
+                name="i-lucide-check-circle"
+                class="text-green-600 text-4xl mx-auto mb-4"
+              />
+              <h2 class="text-xl font-bold text-green-800 mb-2">
+                Message envoyé !
+              </h2>
+              <p class="text-green-700">
+                Nous avons bien reçu votre demande et vous répondrons dans les meilleurs délais.
+              </p>
             </div>
 
-            <form v-else @submit.prevent="handleSubmit" class="space-y-5">
-              <h2 class="text-xl font-bold text-stone-900 mb-6">Formulaire de demande de devis</h2>
+            <form
+              v-else
+              class="space-y-5"
+              @submit.prevent="handleSubmit"
+            >
+              <h2 class="text-xl font-bold text-stone-900 mb-6">
+                Formulaire de demande de devis
+              </h2>
 
               <div class="grid grid-cols-2 gap-4">
                 <div>
-                  <label class="block text-sm font-medium text-stone-700 mb-1" for="nom">Nom *</label>
-                  <UInput id="nom" v-model="form.lastName" placeholder="Dupont" size="lg" :ui="{ base: errors.nom ? 'ring-red-500' : '' }" />
-                  <p v-if="errors.lastName" class="text-red-500 text-xs mt-1">{{ errors.lastName }}</p>
+                  <label
+                    class="block text-sm font-medium text-stone-700 mb-1"
+                    for="nom"
+                  >Nom *</label>
+                  <UInput
+                    id="nom"
+                    v-model="form.lastName"
+                    placeholder="Dupont"
+                    size="lg"
+                    :ui="{ base: errors.nom ? 'ring-red-500' : '' }"
+                  />
+                  <p
+                    v-if="errors.lastName"
+                    class="text-red-500 text-xs mt-1"
+                  >
+                    {{ errors.lastName }}
+                  </p>
                 </div>
                 <div>
-                  <label class="block text-sm font-medium text-stone-700 mb-1" for="prenom">Prénom</label>
-                  <UInput id="prenom" v-model="form.firstName" placeholder="Jean" size="lg" :ui="{ base: errors.firstName ? 'ring-red-500' : '' }" />
-                  <p v-if="errors.firstName" class="text-red-500 text-xs mt-1">{{ errors.firstName }}</p>
+                  <label
+                    class="block text-sm font-medium text-stone-700 mb-1"
+                    for="prenom"
+                  >Prénom</label>
+                  <UInput
+                    id="prenom"
+                    v-model="form.firstName"
+                    placeholder="Jean"
+                    size="lg"
+                    :ui="{ base: errors.firstName ? 'ring-red-500' : '' }"
+                  />
+                  <p
+                    v-if="errors.firstName"
+                    class="text-red-500 text-xs mt-1"
+                  >
+                    {{ errors.firstName }}
+                  </p>
                 </div>
               </div>
 
               <div>
-                <label class="block text-sm font-medium text-stone-700 mb-1" for="telephone">Téléphone *</label>
-                <UInput id="telephone" v-model="form.phone" placeholder="06 00 00 00 00" size="lg" type="tel" :ui="{ base: errors.phone ? 'ring-red-500' : '' }" />
-                <p v-if="errors.phone" class="text-red-500 text-xs mt-1">{{ errors.phone }}</p>
+                <label
+                  class="block text-sm font-medium text-stone-700 mb-1"
+                  for="telephone"
+                >Téléphone *</label>
+                <UInput
+                  id="telephone"
+                  v-model="form.phone"
+                  placeholder="06 00 00 00 00"
+                  size="lg"
+                  type="tel"
+                  :ui="{ base: errors.phone ? 'ring-red-500' : '' }"
+                />
+                <p
+                  v-if="errors.phone"
+                  class="text-red-500 text-xs mt-1"
+                >
+                  {{ errors.phone }}
+                </p>
               </div>
 
               <div>
-                <label class="block text-sm font-medium text-stone-700 mb-1" for="email">Email</label>
-                <UInput id="email" v-model="form.email" placeholder="jean.dupont@email.fr" size="lg" type="email" :ui="{ base: errors.email ? 'ring-red-500' : '' }" />
-                <p v-if="errors.email" class="text-red-500 text-xs mt-1">{{ errors.email }}</p>
+                <label
+                  class="block text-sm font-medium text-stone-700 mb-1"
+                  for="email"
+                >Email</label>
+                <UInput
+                  id="email"
+                  v-model="form.email"
+                  placeholder="jean.dupont@email.fr"
+                  size="lg"
+                  type="email"
+                  :ui="{ base: errors.email ? 'ring-red-500' : '' }"
+                />
+                <p
+                  v-if="errors.email"
+                  class="text-red-500 text-xs mt-1"
+                >
+                  {{ errors.email }}
+                </p>
               </div>
 
               <div>
-                <label class="block text-sm font-medium text-stone-700 mb-1" for="commune">Commune du chantier</label>
-                <UInput id="commune" v-model="form.address" placeholder="Tours, Fondettes, Chinon…" size="lg" />
+                <label
+                  class="block text-sm font-medium text-stone-700 mb-1"
+                  for="commune"
+                >Commune du chantier</label>
+                <UInput
+                  id="commune"
+                  v-model="form.address"
+                  placeholder="Tours, Fondettes, Chinon…"
+                  size="lg"
+                />
               </div>
 
               <div>
-                <label class="block text-sm font-medium text-stone-700 mb-1" for="prestation">Type de prestation</label>
-                <USelect id="prestation" v-model="form.prestation" :items="prestations" placeholder="Choisir une prestation" size="lg" />
+                <label
+                  class="block text-sm font-medium text-stone-700 mb-1"
+                  for="prestation"
+                >Type de prestation</label>
+                <USelect
+                  id="prestation"
+                  v-model="form.prestation"
+                  :items="prestations"
+                  placeholder="Choisir une prestation"
+                  size="lg"
+                />
               </div>
 
               <div>
-                <label class="block text-sm font-medium text-stone-700 mb-1" for="message">Message / description du projet *</label>
-                <UTextarea id="message" v-model="form.message" placeholder="Décrivez votre projet : type de travaux, superficie, localisation, contraintes particulières..." :rows="5" size="lg" :ui="{ base: errors.message ? 'ring-red-500' : '' }" />
-                <p v-if="errors.message" class="text-red-500 text-xs mt-1">{{ errors.message }}</p>
+                <label
+                  class="block text-sm font-medium text-stone-700 mb-1"
+                  for="message"
+                >Message / description du projet *</label>
+                <UTextarea
+                  id="message"
+                  v-model="form.message"
+                  placeholder="Décrivez votre projet : type de travaux, superficie, localisation, contraintes particulières..."
+                  :rows="5"
+                  size="lg"
+                  :ui="{ base: errors.message ? 'ring-red-500' : '' }"
+                />
+                <p
+                  v-if="errors.message"
+                  class="text-red-500 text-xs mt-1"
+                >
+                  {{ errors.message }}
+                </p>
               </div>
 
-              <div v-if="sendError" class="flex items-start gap-2 bg-red-50 border border-red-200 rounded-xl p-4 text-sm text-red-700">
-                <UIcon name="i-lucide-alert-circle" class="flex-shrink-0 mt-0.5" />
+              <div
+                v-if="sendError"
+                class="flex items-start gap-2 bg-red-50 border border-red-200 rounded-xl p-4 text-sm text-red-700"
+              >
+                <UIcon
+                  name="i-lucide-alert-circle"
+                  class="flex-shrink-0 mt-0.5"
+                />
                 {{ sendError }}
               </div>
 
@@ -220,29 +345,57 @@ async function handleSubmit() {
           </div>
 
           <div class="space-y-4">
-            <div class="rounded-xl p-5 text-white" style="background-color: #2D5016">
-              <h3 class="font-semibold mb-3">Nous appeler directement</h3>
-              <a href="tel:+33601370443" class="text-2xl font-bold hover:underline block mb-1">06 01 37 04 43</a>
-              <p class="text-green-200 text-xs">Lundi – Vendredi, réponse rapide</p>
+            <div
+              class="rounded-xl p-5 text-white"
+              style="background-color: #2D5016"
+            >
+              <h3 class="font-semibold mb-3">
+                Nous appeler directement
+              </h3>
+              <a
+                href="tel:+33601370443"
+                class="text-2xl font-bold hover:underline block mb-1"
+              >06 01 37 04 43</a>
+              <p class="text-green-200 text-xs">
+                Lundi – Vendredi, réponse rapide
+              </p>
             </div>
 
             <div class="bg-stone-50 rounded-xl p-5">
-              <h3 class="font-semibold text-stone-800 mb-4">Informations</h3>
+              <h3 class="font-semibold text-stone-800 mb-4">
+                Informations
+              </h3>
               <ul class="space-y-3 text-sm text-stone-700">
                 <li class="flex items-start gap-2">
-                  <UIcon name="i-lucide-map-pin" class="mt-0.5 flex-shrink-0" style="color: #2D5016" />
+                  <UIcon
+                    name="i-lucide-map-pin"
+                    class="mt-0.5 flex-shrink-0"
+                    style="color: #2D5016"
+                  />
                   <span>15 Rue des Rabatteries<br>37230 Fondettes</span>
                 </li>
                 <li class="flex items-start gap-2">
-                  <UIcon name="i-lucide-clock" class="mt-0.5 flex-shrink-0" style="color: #2D5016" />
+                  <UIcon
+                    name="i-lucide-clock"
+                    class="mt-0.5 flex-shrink-0"
+                    style="color: #2D5016"
+                  />
                   Réponse sous 24h ouvrées
                 </li>
                 <li class="flex items-start gap-2">
-                  <UIcon name="i-lucide-badge-check" class="mt-0.5 flex-shrink-0" style="color: #2D5016" />
+                  <UIcon
+                    name="i-lucide-badge-check"
+                    class="mt-0.5 flex-shrink-0"
+                    style="color: #2D5016"
+                  />
                   Devis gratuit sans engagement
                 </li>
                 <li class="flex items-start gap-2">
-                  <UIcon name="i-lucide-map" class="mt-0.5 flex-shrink-0" style="color: #2D5016" />
+                  <UIcon
+                    name="i-lucide-map"
+                    class="mt-0.5 flex-shrink-0"
+                    style="color: #2D5016"
+                  />
                   Indre-et-Loire (37) et environs
                 </li>
               </ul>
@@ -253,7 +406,9 @@ async function handleSubmit() {
                 <UIcon name="i-simple-icons-google" />
                 Nos avis Google
               </h3>
-              <p class="text-amber-800 text-sm mb-3">Consultez les avis de nos clients sur Google Business.</p>
+              <p class="text-amber-800 text-sm mb-3">
+                Consultez les avis de nos clients sur Google Business.
+              </p>
               <UButton
                 to="https://share.google/QKpfCyuEupbTsyRvt"
                 target="_blank"
@@ -266,8 +421,12 @@ async function handleSubmit() {
             </div>
 
             <div class="bg-green-50 border border-green-200 rounded-xl p-5">
-              <h3 class="font-semibold text-green-800 mb-2">Site partenaire</h3>
-              <p class="text-green-700 text-sm mb-3">Besoin de louer une benne ? Découvrez TD Location Benne 37.</p>
+              <h3 class="font-semibold text-green-800 mb-2">
+                Site partenaire
+              </h3>
+              <p class="text-green-700 text-sm mb-3">
+                Besoin de louer une benne ? Découvrez TD Location Benne 37.
+              </p>
               <UButton
                 to="https://td-locationbenne37.fr"
                 target="_blank"

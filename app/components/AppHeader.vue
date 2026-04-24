@@ -13,9 +13,18 @@ const nav = [
 <template>
   <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-stone-200 shadow-sm">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <NuxtLink to="/" class="flex items-center gap-2 group">
-        <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background-color: #2D5016">
-          <UIcon name="i-lucide-shovel" class="text-white text-xl" />
+      <NuxtLink
+        to="/"
+        class="flex items-center gap-2 group"
+      >
+        <div
+          class="w-10 h-10 rounded-lg flex items-center justify-center"
+          style="background-color: #2D5016"
+        >
+          <UIcon
+            name="i-lucide-shovel"
+            class="text-white text-xl"
+          />
         </div>
         <div>
           <div class="font-bold text-stone-900 leading-tight text-sm">TD Terrassement 37</div>
@@ -40,7 +49,10 @@ const nav = [
           href="tel:+33601370443"
           class="flex items-center gap-1.5 text-sm font-semibold px-3 py-2 rounded-lg border border-stone-200 text-stone-700 hover:bg-stone-50 transition-colors"
         >
-          <UIcon name="i-lucide-phone" class="text-green-700" />
+          <UIcon
+            name="i-lucide-phone"
+            class="text-green-700"
+          />
           06 01 37 04 43
         </a>
         <UButton
@@ -60,7 +72,10 @@ const nav = [
       />
     </div>
 
-    <div v-if="mobileOpen" class="md:hidden border-t border-stone-100 bg-white px-4 py-3 space-y-1">
+    <div
+      v-if="mobileOpen"
+      class="md:hidden border-t border-stone-100 bg-white px-4 py-3 space-y-1"
+    >
       <NuxtLink
         v-for="item in nav"
         :key="item.to"
@@ -75,10 +90,18 @@ const nav = [
           href="tel:+33601370443"
           class="flex items-center justify-center gap-2 py-2.5 rounded-lg border border-stone-200 text-stone-700 font-semibold text-sm"
         >
-          <UIcon name="i-lucide-phone" style="color: #2D5016" />
+          <UIcon
+            name="i-lucide-phone"
+            style="color: #2D5016"
+          />
           06 01 37 04 43
         </a>
-        <UButton to="/contact" block label="Devis gratuit" :style="{ backgroundColor: '#2D5016', color: 'white' }" />
+        <UButton
+          to="/contact"
+          block
+          label="Devis gratuit"
+          :style="{ backgroundColor: '#2D5016', color: 'white' }"
+        />
       </div>
     </div>
   </header>
