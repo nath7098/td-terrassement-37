@@ -101,7 +101,7 @@ export default defineNuxtConfig({
       { loc: '/contact', priority: 0.8, changefreq: 'monthly' },
       ...villeSlugs.map(slug => ({
         loc: `/zones/${slug}`,
-        priority: 0.8,
+        priority: 0.8 as const,
         changefreq: 'monthly' as const,
         lastmod: new Date().toISOString().split('T')[0]
       }))

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { villes } from '~/data/villes'
+import { villes, type Ville } from '~/data/villes'
 
 const PHONE_INTL = '+33601370443'
 const SITE_URL = 'https://terrassement.td-locationbenne37.fr'
@@ -127,7 +127,7 @@ const services = [
 
 // Villes stratégiques par ordre de priorité SEO (population + proximité)
 const featuredVilleSlugs = ['tours', 'joue-les-tours', 'fondettes', 'chinon', 'loches', 'montlouis-sur-loire']
-const featuredVilles = featuredVilleSlugs.map(slug => villes[slug]).filter(Boolean)
+const featuredVilles = featuredVilleSlugs.map(slug => villes[slug]).filter((v): v is Ville => v !== undefined)
 
 const faq = [
   {

@@ -200,7 +200,7 @@ async function handleSubmit() {
                     v-model="form.lastName"
                     placeholder="Dupont"
                     size="lg"
-                    :ui="{ base: errors.nom ? 'ring-red-500' : '' }"
+                    :ui="{ base: errors.lastName ? 'ring-red-500' : '' }"
                   />
                   <p
                     v-if="errors.lastName"
