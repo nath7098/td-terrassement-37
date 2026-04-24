@@ -25,7 +25,33 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
 
+  app: {
+    head: {
+      htmlAttrs: { lang: 'fr' },
+      charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=1',
+      meta: [
+        { name: 'geo.region', content: 'FR-37' },
+        { name: 'geo.placename', content: 'Fondettes, Indre-et-Loire' },
+        { name: 'geo.position', content: '47.4019;0.6031' },
+        { name: 'ICBM', content: '47.4019, 0.6031' }
+      ]
+    }
+  },
+
   css: ['~/assets/css/main.css'],
+
+  site: {
+    url: 'https://terrassement.td-locationbenne37.fr',
+    name: 'TD Terrassement 37',
+    description: 'Entreprise de terrassement en Indre-et-Loire (37). Excavation, nivellement, remblaiement à Tours et dans tout le département.',
+    defaultLocale: 'fr'
+  },
+
+  colorMode: {
+    preference: 'light',
+    fallback: 'light'
+  },
 
   runtimeConfig: {
     public: {
@@ -34,11 +60,36 @@ export default defineNuxtConfig({
     }
   },
 
-  site: {
-    url: 'https://terrassement.td-locationbenne37.fr',
-    name: 'TD Terrassement 37',
-    description: 'Entreprise de terrassement en Indre-et-Loire (37). Excavation, nivellement, remblaiement à Tours et dans tout le département.',
-    defaultLocale: 'fr'
+  routeRules: {
+    '/': { prerender: true },
+    '/services': { prerender: true },
+    '/zones': { prerender: true },
+    '/zones/**': { prerender: true },
+    '/contact': { prerender: true },
+    '/mentions-legales': { prerender: true },
+    '/404': { prerender: true }
+  },
+
+  compatibilityDate: '2025-01-15',
+
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: staticRoutes
+    }
+  },
+
+  eslint: {
+    config: {
+      stylistic: {
+        commaDangle: 'never',
+        braceStyle: '1tbs'
+      }
+    }
+  },
+
+  robots: {
+    disallow: []
   },
 
   sitemap: {
@@ -55,56 +106,5 @@ export default defineNuxtConfig({
         lastmod: new Date().toISOString().split('T')[0]
       }))
     ]
-  },
-
-  robots: {
-    disallow: []
-  },
-
-  nitro: {
-    prerender: {
-      crawlLinks: true,
-      routes: staticRoutes
-    }
-  },
-
-  app: {
-    head: {
-      htmlAttrs: { lang: 'fr' },
-      charset: 'utf-8',
-      viewport: 'width=device-width, initial-scale=1',
-      meta: [
-        { name: 'geo.region', content: 'FR-37' },
-        { name: 'geo.placename', content: 'Fondettes, Indre-et-Loire' },
-        { name: 'geo.position', content: '47.4019;0.6031' },
-        { name: 'ICBM', content: '47.4019, 0.6031' }
-      ]
-    }
-  },
-
-  routeRules: {
-    '/': { prerender: true },
-    '/services': { prerender: true },
-    '/zones': { prerender: true },
-    '/zones/**': { prerender: true },
-    '/contact': { prerender: true },
-    '/mentions-legales': { prerender: true },
-    '/404': { prerender: true }
-  },
-
-  colorMode: {
-    preference: 'light',
-    fallback: 'light'
-  },
-
-  compatibilityDate: '2025-01-15',
-
-  eslint: {
-    config: {
-      stylistic: {
-        commaDangle: 'never',
-        braceStyle: '1tbs'
-      }
-    }
   }
 })

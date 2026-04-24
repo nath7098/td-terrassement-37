@@ -5,7 +5,7 @@ export interface Ville {
   codePostal: string
   population: string
   departement: string
-  coordinates: { lat: number; lng: number }
+  coordinates: { lat: number, lng: number }
   quartiers: string[]
   villesProches: string[]
   description: string

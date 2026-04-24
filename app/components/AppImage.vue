@@ -17,7 +17,7 @@ defineProps<{
     decoding="async"
     class="w-full h-full object-cover"
     :class="{ 'rounded-2xl': rounded }"
-  />
+  >
   <!-- Placeholder structuré — retiré dès que src est renseigné -->
   <div
     v-else
@@ -27,9 +27,16 @@ defineProps<{
     role="img"
   >
     <div class="text-center text-stone-400 p-6 select-none">
-      <UIcon name="i-lucide-image" class="text-3xl mb-2 block mx-auto" />
-      <p class="text-xs font-medium">Photo à venir</p>
-      <p class="text-xs mt-1 opacity-60 max-w-[160px]">{{ alt }}</p>
+      <UIcon
+        name="i-lucide-image"
+        class="text-3xl mb-2 block mx-auto"
+      />
+      <p class="text-xs font-medium">
+        Photo à venir
+      </p>
+      <p class="text-xs mt-1 opacity-60 max-w-[160px]">
+        {{ alt }}
+      </p>
     </div>
   </div>
 </template>
