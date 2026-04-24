@@ -17,15 +17,11 @@ const nav = [
         to="/"
         class="flex items-center gap-2 group"
       >
-        <div
-          class="w-10 h-10 rounded-lg flex items-center justify-center"
-          style="background-color: #2D5016"
-        >
-          <UIcon
-            name="i-lucide-shovel"
-            class="text-white text-xl"
-          />
-        </div>
+        <img
+          src="/nav_logo_terrassement.png"
+          alt="TD Terrassement 37"
+          class="h-10 w-auto"
+        />
         <div>
           <div class="font-bold text-stone-900 leading-tight text-sm">TD Terrassement 37</div>
           <div class="text-xs text-stone-500">Indre-et-Loire</div>
