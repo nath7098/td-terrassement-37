@@ -30,6 +30,9 @@ export default defineNuxtConfig({
       htmlAttrs: { lang: 'fr' },
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      ],
       meta: [
         { name: 'geo.region', content: 'FR-37' },
         { name: 'geo.placename', content: 'Fondettes, Indre-et-Loire' },

@@ -81,6 +81,7 @@ const services = [
     title: 'Terrassement général',
     slug: 'terrassement-general',
     color: '#2D5016',
+    img: '/images/terrassement.png',
     intro: 'Le terrassement général regroupe l\'ensemble des travaux de préparation de terrain nécessaires avant toute construction ou aménagement.',
     details: [
       'Débroussaillage et défrichage de terrain',
@@ -96,6 +97,7 @@ const services = [
     title: 'Excavation',
     slug: 'excavation',
     color: '#4A7C59',
+    img: '/images/excavation.png',
     intro: 'L\'excavation est une opération de creusement précise réalisée pour créer des espaces souterrains ou des tranchées pour différents usages.',
     details: [
       'Fouilles en rigole pour fondations',
@@ -111,6 +113,7 @@ const services = [
     title: 'Nivellement & remblaiement',
     slug: 'nivellement',
     color: '#8B6914',
+    img: '/images/remblaiement.png',
     intro: 'Le nivellement et le remblaiement permettent de modeler un terrain pour lui donner le profil souhaité et assurer la stabilité des futures constructions.',
     details: [
       'Mise à niveau de terrain (planage)',
@@ -211,8 +214,8 @@ useHead({
               <p class="text-stone-600 leading-relaxed mb-4">
                 {{ s.intro }}
               </p>
-              <!-- Photo de la prestation — remplacer src avec l'image fournie par Nathan -->
               <AppImage
+                :src="s.img"
                 :alt="`${s.title} par TD Terrassement 37 en Indre-et-Loire`"
                 aspect-ratio="16/9"
                 :rounded="true"

@@ -190,6 +190,7 @@ useHead({
             </div>
 
             <AppImage
+              src="/images/terrassement.png"
               :alt="`Terrassement et excavation à ${ville.nom} par TD Terrassement 37`"
               aspect-ratio="16/9"
               :rounded="true"
