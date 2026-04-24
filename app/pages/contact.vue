@@ -62,11 +62,11 @@ const EMAILJS_SERVICE_ID = 'service_terrassement'
 const EMAILJS_TEMPLATE_ID = 'template_td_benne_37'
 
 const form = reactive({
-  nom: '',
-  prenom: '',
-  telephone: '',
+  lastName: '',
+  firstName: '',
+  phone: '',
   email: '',
-  commune: '',
+  address: '',
   prestation: '',
   message: ''
 })
@@ -83,19 +83,21 @@ const loading = ref(false)
 const sendError = ref('')
 
 const errors = reactive({
-  nom: '',
-  telephone: '',
+  lastName: '',
+  firstName: '',
+  phone: '',
   email: '',
   message: ''
 })
 
 function validateForm() {
   let valid = true
-  errors.nom = form.nom.trim() ? '' : 'Le nom est requis'
-  errors.telephone = /^[0-9\s+().-]{8,}$/.test(form.telephone) ? '' : 'Numéro de téléphone invalide'
+  errors.lastName = form.lastName.trim() ? '' : 'Le nom est requis'
+  errors.firstName = form.firstName.trim() ? '' : 'Le prénom est requis'
+  errors.phone = /^[0-9\s+().-]{8,}$/.test(form.phone) ? '' : 'Numéro de téléphone invalide'
   errors.email = form.email ? (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email) ? '' : 'Email invalide') : ''
   errors.message = form.message.trim().length >= 10 ? '' : 'Le message doit faire au moins 10 caractères'
-  if (errors.nom || errors.telephone || errors.message) valid = false
+  if (errors.lastName || errors.firstName || errors.phone || errors.message) valid = false
   return valid
 }
 
@@ -111,11 +113,11 @@ async function handleSubmit() {
       EMAILJS_SERVICE_ID,
       EMAILJS_TEMPLATE_ID,
       {
-        nom: form.nom,
-        prenom: form.prenom,
-        telephone: form.telephone,
+        lastName: form.lastName,
+        firstName: form.firstName,
+        phone: form.phone,
         email: form.email,
-        commune: form.commune,
+        address: form.address,
         prestation: form.prestation,
         message: form.message,
         type_prestation: 'terrassement'
@@ -161,19 +163,20 @@ async function handleSubmit() {
               <div class="grid grid-cols-2 gap-4">
                 <div>
                   <label class="block text-sm font-medium text-stone-700 mb-1" for="nom">Nom *</label>
-                  <UInput id="nom" v-model="form.nom" placeholder="Dupont" size="lg" :ui="{ base: errors.nom ? 'ring-red-500' : '' }" />
-                  <p v-if="errors.nom" class="text-red-500 text-xs mt-1">{{ errors.nom }}</p>
+                  <UInput id="nom" v-model="form.lastName" placeholder="Dupont" size="lg" :ui="{ base: errors.nom ? 'ring-red-500' : '' }" />
+                  <p v-if="errors.lastName" class="text-red-500 text-xs mt-1">{{ errors.lastName }}</p>
                 </div>
                 <div>
                   <label class="block text-sm font-medium text-stone-700 mb-1" for="prenom">Prénom</label>
-                  <UInput id="prenom" v-model="form.prenom" placeholder="Jean" size="lg" />
+                  <UInput id="prenom" v-model="form.firstName" placeholder="Jean" size="lg" :ui="{ base: errors.firstName ? 'ring-red-500' : '' }" />
+                  <p v-if="errors.firstName" class="text-red-500 text-xs mt-1">{{ errors.firstName }}</p>
                 </div>
               </div>
 
               <div>
                 <label class="block text-sm font-medium text-stone-700 mb-1" for="telephone">Téléphone *</label>
-                <UInput id="telephone" v-model="form.telephone" placeholder="06 01 23 45 67" size="lg" type="tel" :ui="{ base: errors.telephone ? 'ring-red-500' : '' }" />
-                <p v-if="errors.telephone" class="text-red-500 text-xs mt-1">{{ errors.telephone }}</p>
+                <UInput id="telephone" v-model="form.phone" placeholder="06 00 00 00 00" size="lg" type="tel" :ui="{ base: errors.phone ? 'ring-red-500' : '' }" />
+                <p v-if="errors.phone" class="text-red-500 text-xs mt-1">{{ errors.phone }}</p>
               </div>
 
               <div>
@@ -184,7 +187,7 @@ async function handleSubmit() {
 
               <div>
                 <label class="block text-sm font-medium text-stone-700 mb-1" for="commune">Commune du chantier</label>
-                <UInput id="commune" v-model="form.commune" placeholder="Tours, Fondettes, Chinon…" size="lg" />
+                <UInput id="commune" v-model="form.address" placeholder="Tours, Fondettes, Chinon…" size="lg" />
               </div>
 
               <div>
