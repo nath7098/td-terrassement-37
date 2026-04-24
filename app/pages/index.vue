@@ -107,21 +107,24 @@ const services = [
     title: 'Terrassement général',
     desc: 'Préparation complète des terrains pour tous vos projets de construction et d\'aménagement.',
     color: '#2D5016',
-    anchor: '#terrassement-general'
+    anchor: '#terrassement-general',
+    img: '/images/terrassement.png'
   },
   {
     icon: 'i-lucide-drill',
     title: 'Excavation',
     desc: 'Fouilles précises pour fondations, tranchées, sous-sols et tous travaux souterrains.',
     color: '#4A7C59',
-    anchor: '#excavation'
+    anchor: '#excavation',
+    img: '/images/excavation.png'
   },
   {
     icon: 'i-lucide-layers',
     title: 'Nivellement & remblaiement',
     desc: 'Mise à niveau de vos terrains et remblaiement de qualité pour une surface stable.',
     color: '#8B6914',
-    anchor: '#nivellement'
+    anchor: '#nivellement',
+    img: '/images/remblaiement.png'
   }
 ]
 
@@ -198,9 +201,9 @@ const faq = [
               />
             </div>
           </div>
-          <!-- Photo hero — remplacer src avec l'image fournie par Nathan -->
           <div class="hidden md:block">
             <AppImage
+              src="/images/terrassement.png"
               alt="Chantier de terrassement en Indre-et-Loire — TD Terrassement 37"
               aspect-ratio="4/3"
               :rounded="true"
@@ -228,11 +231,10 @@ const faq = [
             :to="`/services${s.anchor}`"
             class="group bg-white rounded-2xl overflow-hidden shadow-sm border border-stone-100 hover:shadow-md transition-shadow"
           >
-            <!-- Photo prestation — remplacer src avec l'image fournie par Nathan -->
             <AppImage
+              :src="s.img"
               :alt="`${s.title} en Indre-et-Loire — TD Terrassement 37`"
               aspect-ratio="16/9"
-              class="w-full"
             />
             <div class="p-6">
               <div
