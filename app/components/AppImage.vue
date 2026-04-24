@@ -10,7 +10,8 @@ defineProps<{
 <template>
   <div
     class="w-full overflow-hidden"
-    :class="[rounded ? 'rounded-2xl' : '', aspectRatio ? `aspect-[${aspectRatio}]` : 'aspect-video']"
+    :class="rounded ? 'rounded-2xl' : ''"
+    :style="{ aspectRatio: aspectRatio ?? '16/9' }"
   >
     <img
       v-if="src"
