@@ -20,7 +20,7 @@ const nav = [
         <img
           src="/nav_logo_terrassement.png"
           alt="TD Terrassement 37"
-          class="h-10 w-auto"
+          class="h-14 w-auto"
         />
         <div>
           <div class="font-bold text-stone-900 leading-tight text-sm">TD Terrassement 37</div>
